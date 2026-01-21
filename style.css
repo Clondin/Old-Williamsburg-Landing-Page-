@@ -1,0 +1,498 @@
+:root {
+    --color-red: #8B0000;
+    --color-gold: #D4AF37;
+    --color-text-dark: #1A1A1A;
+    --color-text-light: #F9F7F2;
+    --color-bg-creme: #F9F7F2;
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    color: var(--color-text-dark);
+    background-color: var(--color-bg-creme);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Nav */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1.5rem 3rem;
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+    transition: background 0.3s ease, padding 0.3s ease;
+}
+
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 1rem 3rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.nav-container {
+    width: 100%;
+    max-width: 1400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--color-text-dark);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--color-gold);
+}
+
+.btn-primary {
+    border: 1px solid var(--color-text-dark);
+    padding: 0.5rem 1.5rem;
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+
+.btn-primary:hover {
+    background: var(--color-text-dark);
+    color: #fff;
+}
+
+/* Hero */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    color: #fff;
+    background-color: #000;
+    overflow: hidden;
+}
+
+.hero-bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('assets/bg-wood.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.6;
+    transform: scale(1.1);
+    /* Basic parallax attempt via animation or fixed if simple */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 2rem;
+}
+
+.hero-logo {
+    width: 280px;
+    max-width: 80%;
+    margin-bottom: 2rem;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+    mix-blend-mode: screen;
+    /* drops black bg if present */
+}
+
+.hero-tagline {
+    font-family: var(--font-serif);
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
+.hero-subtext {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+.hero-scroll-indicator {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    opacity: 0.7;
+}
+
+.line {
+    width: 1px;
+    height: 40px;
+    background: #fff;
+}
+
+/* Products */
+.product-section {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 4rem 0;
+    overflow: hidden;
+}
+
+.bg-wood {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('assets/bg-wood.png');
+    background-size: cover;
+    filter: brightness(0.9);
+    z-index: -1;
+}
+
+.bg-slate {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('assets/bg-slate.png');
+    background-size: cover;
+    z-index: -1;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.reverse-layout {
+    direction: rtl;
+    /* Simple way to flip grid, but better to rearrange areas usually. */
+    /* Or just swap in HTML, which I did not strictly do, I just swapped class order but grid auto places. 
+       Let's stick to explicit order or swap in HTML. I ordered HTML. 
+       Actually reverse-layout class can just be flex-direction row-reverse if stuck.
+       Grid handles it by default source order.
+    */
+}
+
+.reverse-layout>* {
+    direction: ltr;
+    /* Reset text direction if using RTL hack */
+}
+
+/* For simplicity, relying on HTML order for grid. */
+
+.product-title {
+    font-family: var(--font-serif);
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.collection-label {
+    display: block;
+    font-family: var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    color: var(--color-gold);
+    font-weight: 600;
+}
+
+.product-description {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    max-width: 450px;
+    opacity: 0.9;
+}
+
+/* Light / Dark text adjustments */
+.salsa-section {
+    color: #fff;
+    /* Wood is dark */
+}
+
+.salsa-section .product-title {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.tuna-section {
+    color: #fff;
+    /* Slate is dark */
+}
+
+.text-light {
+    color: #fff;
+}
+
+.text-gold {
+    color: var(--color-gold);
+}
+
+.product-image-wrapper {
+    position: relative;
+    /* Fancy border or effect could go here */
+}
+
+.main-product-img {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4));
+    transition: transform 0.5s ease;
+}
+
+.main-product-img:hover {
+    transform: scale(1.02);
+}
+
+.flavor-tags {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.tag {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+.certifications {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.cert {
+    border: 1px solid var(--color-gold);
+    color: var(--color-gold);
+    padding: 0.5rem 1rem;
+    border-radius: 2px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+.btn-text {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 2px;
+    transition: opacity 0.3s;
+}
+
+.btn-text:hover {
+    opacity: 0.7;
+}
+
+/* Floating stuff */
+.floating-ingredients {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.ingredient-1 {
+    width: 150px;
+    top: -50px;
+    left: -50px;
+    transform: rotate(-15deg);
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+}
+
+.ingredient-2 {
+    width: 100px;
+    bottom: -30px;
+    right: 20px;
+    transform: rotate(25deg);
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+}
+
+/* Story */
+.story-section {
+    background: var(--color-bg-creme);
+    color: var(--color-text-dark);
+    padding: 8rem 0;
+    text-align: center;
+}
+
+.story-content {
+    max-width: 700px;
+}
+
+.mini-logo {
+    width: 80px;
+    margin-bottom: 2rem;
+    filter: invert(1);
+    /* Invert logo to black if main was white */
+}
+
+.story-section h2 {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+.story-section p {
+    font-size: 1.25rem;
+    line-height: 1.8;
+}
+
+/* Footer */
+footer {
+    background: #111;
+    color: #fff;
+    padding: 4rem 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-col h3 {
+    font-family: var(--font-serif);
+    margin-bottom: 1rem;
+    color: var(--color-gold);
+}
+
+.footer-col h4 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    opacity: 0.6;
+}
+
+.footer-col a {
+    display: block;
+    color: #999;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s;
+}
+
+.footer-col a:hover {
+    color: #fff;
+}
+
+/* Animation Setup */
+.fade-up,
+.fade-left,
+.fade-right {
+    opacity: 0;
+    transition: all 1s ease-out;
+}
+
+.fade-up {
+    transform: translateY(50px);
+}
+
+.fade-left {
+    transform: translateX(50px);
+}
+
+.fade-right {
+    transform: translateX(-50px);
+}
+
+.visible {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .reverse-layout {
+        display: flex;
+        flex-direction: column-reverse;
+        /* Put image on top on mobile? Or keep bottom? */
+    }
+
+    /* Actually usually image first on mobile looks nice. */
+    .reverse-layout {
+        flex-direction: column;
+    }
+
+    .hero-tagline {
+        font-size: 2.5rem;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    /* Quick responsive fix: hide links or make burger (omitted for speed) */
+    .nav-container {
+        justify-content: center;
+    }
+
+    .ingredient-1,
+    .ingredient-2 {
+        display: none;
+    }
+
+    .product-image-wrapper {
+        margin-bottom: 2rem;
+    }
+}
