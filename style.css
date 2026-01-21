@@ -57,6 +57,12 @@ body {
     letter-spacing: -0.02em;
 }
 
+.nav-logo img {
+    filter: invert(1);
+    /* Invert black logo to white for dark bg */
+    transition: filter 0.3s;
+}
+
 .nav-links {
     list-style: none;
     display: flex;
@@ -66,7 +72,8 @@ body {
 
 .nav-links a {
     text-decoration: none;
-    color: var(--color-text-dark);
+    color: #fff;
+    /* Visible on dark hero */
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -74,28 +81,24 @@ body {
     transition: color 0.3s;
 }
 
-.nav-links a:hover {
-    color: var(--color-gold);
+.navbar.scrolled .nav-links a {
+    color: var(--color-text-dark);
 }
 
-.btn-primary {
-    border: 1px solid var(--color-text-dark);
-    padding: 0.5rem 1.5rem;
-    border-radius: 2px;
-    transition: all 0.3s;
-}
-
-.btn-primary:hover {
-    background: var(--color-text-dark);
-    color: #fff;
+.navbar.scrolled .nav-logo img {
+    filter: invert(0);
+    /* Black text on white bg */
 }
 
 /* Hero */
 .hero-section {
     height: 100vh;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    /* Push content to top */
     justify-content: center;
+    padding-top: 15vh;
+    /* Spacing from top */
     position: relative;
     text-align: center;
     color: #fff;
@@ -128,7 +131,7 @@ body {
     width: 280px;
     max-width: 80%;
     margin-bottom: 2rem;
-    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+    filter: invert(1) drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
     mix-blend-mode: screen;
     /* drops black bg if present */
 }
@@ -363,6 +366,15 @@ body {
     filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
 }
 
+.ingredient-3 {
+    width: 120px;
+    top: -40px;
+    right: -20px;
+    transform: rotate(45deg);
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
+    z-index: 1;
+}
+
 /* Story */
 .story-section {
     background: var(--color-bg-creme);
@@ -376,10 +388,9 @@ body {
 }
 
 .mini-logo {
-    width: 80px;
+    width: 120px;
     margin-bottom: 2rem;
-    filter: invert(1);
-    /* Invert logo to black if main was white */
+    /* No invert needed, using black logo */
 }
 
 .story-section h2 {
