@@ -1,12 +1,12 @@
-/* eslint-disable @next/next/no-img-element */
+import Image from "next/image";
 
 export default function Story() {
   return (
-    <section className="py-32 px-8 bg-white relative">
+    <section id="story" className="py-32 px-8 bg-white relative">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center">
         <div className="red-accent-rule pl-12">
           <span className="uppercase font-mono text-brick-red tracking-[0.4em] text-xs block mb-6 font-bold">
-            Documented Legacy // BK-92
+            Our Heritage // Brooklyn, NY
           </span>
           <h2 className="font-headline text-5xl md:text-6xl text-steel-blue mb-10 italic font-bold">
             The New York Way
@@ -27,10 +27,12 @@ export default function Story() {
         </div>
         <div className="relative">
           <div className="blueprint-border p-1">
-            <img
+            <Image
               alt="Rustic New York Market Sketch"
               className="w-full grayscale contrast-125"
               src="/ny_market_sketch.png"
+              width={600}
+              height={400}
             />
           </div>
           <div className="absolute -bottom-6 -right-6 bg-steel-blue text-white p-6 font-mono text-xs hidden lg:block shadow-xl">

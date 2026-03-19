@@ -28,21 +28,21 @@ export default function Footer() {
           </div>
           <div>
             <h4 className="font-mono text-[10px] uppercase tracking-widest mb-6 text-brick-red font-bold">
-              Internal Refs
+              Explore
             </h4>
             <ul className="space-y-3 text-xs uppercase tracking-wider font-semibold">
               <li>
-                <Link className="hover:text-brick-red transition-colors" href="#">
-                  Our Standard
+                <Link className="hover:text-brick-red transition-colors" href="#story">
+                  Our Story
                 </Link>
               </li>
               <li>
-                <Link className="hover:text-brick-red transition-colors" href="#">
-                  Component Index
+                <Link className="hover:text-brick-red transition-colors" href="#catalog">
+                  Products
                 </Link>
               </li>
               <li>
-                <Link className="hover:text-brick-red transition-colors" href="#">
+                <Link className="hover:text-brick-red transition-colors" href="#quote">
                   Quality Assurance
                 </Link>
               </li>
@@ -50,7 +50,7 @@ export default function Footer() {
           </div>
           <div>
             <h4 className="font-mono text-[10px] uppercase tracking-widest mb-6 text-brick-red font-bold">
-              Contact Node
+              Get in Touch
             </h4>
             <ul className="space-y-3 text-xs uppercase tracking-wider font-semibold">
               <li>
@@ -60,19 +60,19 @@ export default function Footer() {
               </li>
               <li>
                 <Link className="hover:text-brick-red transition-colors" href="#">
-                  Dispatch Support
+                  Customer Support
                 </Link>
               </li>
               <li>
                 <Link className="hover:text-brick-red transition-colors" href="#">
-                  Legal Dept
+                  Legal
                 </Link>
               </li>
             </ul>
           </div>
         </div>
         <div className="pt-10 flex flex-col md:flex-row justify-between items-center text-[10px] font-mono text-white/40 uppercase tracking-[0.2em]">
-          <p>&copy; 1892 OLD WILLIAMSBURG PROVISIONS. ALL REPRODUCTION FORBIDDEN.</p>
+          <p>&copy; 2025 OLD WILLIAMSBURG PROVISIONS. ALL RIGHTS RESERVED.</p>
           <p>BK-USA-718</p>
         </div>
       </div>

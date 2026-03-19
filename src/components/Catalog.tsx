@@ -48,14 +48,14 @@ export default function Catalog() {
         <div className="flex flex-col md:flex-row justify-between items-baseline mb-20 border-b-2 border-steel-blue pb-8">
           <div className="flex items-center gap-6">
             <h2 className="font-headline text-5xl text-steel-blue italic font-bold">
-              The Catalog
+              Our Products
             </h2>
             <span className="bg-brick-red text-white font-mono text-[10px] px-3 py-1 uppercase tracking-tighter">
-              Inventory v1.2
+              Est. 1892
             </span>
           </div>
           <p className="font-mono text-xs uppercase tracking-widest text-industrial-gray mt-4 md:mt-0">
-            Certified Provisions // Grade A Quality
+            Premium Provisions // Since 1892
           </p>
         </div>
 
@@ -81,6 +81,9 @@ export default function Catalog() {
               <span className="material-symbols-outlined">chevron_right</span>
             </button>
           )}
+
+          {/* Mobile scroll fade hint */}
+          <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-blueprint-bg to-transparent z-[5] pointer-events-none md:hidden" />
 
           {/* Scrollable Container */}
           <div

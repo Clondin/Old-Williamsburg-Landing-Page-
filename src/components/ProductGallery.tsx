@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 export default function ProductGallery({
   images,
@@ -12,8 +12,24 @@ export default function ProductGallery({
 }) {
   const [activeImage, setActiveImage] = useState(0);
 
+  const handleKeyDown = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") {
+        setActiveImage((prev) => (prev > 0 ? prev - 1 : images.length - 1));
+      } else if (e.key === "ArrowRight") {
+        setActiveImage((prev) => (prev < images.length - 1 ? prev + 1 : 0));
+      }
+    },
+    [images.length]
+  );
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [handleKeyDown]);
+
   return (
-    <div className="p-8 lg:p-12 flex flex-col">
+    <div className="p-8 lg:p-12 flex flex-col" role="group" aria-label="Product image gallery">
       <div className="relative aspect-[3/4] bg-[#f5f5f5] border border-steel-blue/10 overflow-hidden">
         <Image
           src={images[activeImage]}
@@ -29,6 +45,8 @@ export default function ProductGallery({
           <button
             key={img}
             onClick={() => setActiveImage(i)}
+            aria-label={`View ${name} image ${i + 1} of ${images.length}`}
+            aria-current={activeImage === i}
             className={`relative w-20 h-20 border-2 overflow-hidden transition-all cursor-pointer ${
               activeImage === i
                 ? "border-brick-red"

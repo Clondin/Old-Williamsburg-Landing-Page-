@@ -1,6 +1,6 @@
 export default function Quote() {
   return (
-    <section className="relative py-24 bg-steel-blue text-white overflow-hidden">
+    <section id="quote" className="relative py-24 bg-steel-blue text-white overflow-hidden">
       <div className="absolute inset-0 opacity-20">
         <div
           className="w-full h-full bg-center bg-cover"
@@ -16,7 +16,7 @@ export default function Quote() {
         <div className="flex justify-center items-center space-x-6">
           <div className="h-[2px] w-20 bg-white/40" />
           <span className="font-mono text-xs uppercase tracking-[0.5em] font-bold">
-            Auth: OW-1892
+            Old Williamsburg, Est. 1892
           </span>
           <div className="h-[2px] w-20 bg-white/40" />
         </div>

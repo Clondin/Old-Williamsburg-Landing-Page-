@@ -1,10 +1,25 @@
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import { getProductBySlug, getAllProductSlugs, getRangeBySlug } from "@/data/products";
 import ProductDetail from "@/components/ProductDetail";
 import Link from "next/link";
 
 export function generateStaticParams() {
   return getAllProductSlugs().map((slug) => ({ slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const product = getProductBySlug(slug);
+  if (!product) return { title: "Product Not Found" };
+  return {
+    title: `${product.name} — Old Williamsburg`,
+    description: product.description,
+  };
 }
 
 export default async function ProductPage({

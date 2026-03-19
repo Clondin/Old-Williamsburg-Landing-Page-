@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import type { Product } from "@/data/products";
 
@@ -22,6 +22,18 @@ export default function ProductDetail({ product }: { product: Product }) {
     setVariantIndex(i);
     setActiveImage(0);
   };
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") {
+        setActiveImage((prev) => (prev > 0 ? prev - 1 : allImages.length - 1));
+      } else if (e.key === "ArrowRight") {
+        setActiveImage((prev) => (prev < allImages.length - 1 ? prev + 1 : 0));
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [allImages.length]);
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2">
@@ -79,11 +91,12 @@ export default function ProductDetail({ product }: { product: Product }) {
               <h2 className="font-mono text-[10px] uppercase tracking-widest text-steel-blue font-bold mb-3">
                 Select Size
               </h2>
-              <div className="flex gap-3">
+              <div className="flex gap-3" role="group" aria-label="Size options">
                 {product.variants!.map((v, i) => (
                   <button
                     key={v.sku}
                     onClick={() => handleVariantChange(i)}
+                    aria-pressed={variantIndex === i}
                     className={`font-mono text-sm px-5 py-3 border-2 transition-all cursor-pointer ${
                       variantIndex === i
                         ? "border-brick-red bg-brick-red text-white"
@@ -146,7 +159,7 @@ export default function ProductDetail({ product }: { product: Product }) {
           <div className="mt-8 space-y-3">
             {product.features.map((feature) => (
               <div key={feature} className="flex items-center gap-3">
-                <span className="material-symbols-outlined text-brick-red text-base">
+                <span className="material-symbols-outlined text-brick-red text-base" aria-hidden="true">
                   check_circle
                 </span>
                 <span className="font-mono text-xs uppercase tracking-wide text-steel-blue">
@@ -158,7 +171,12 @@ export default function ProductDetail({ product }: { product: Product }) {
         </div>
 
         <div className="mt-10 pt-6 border-t border-steel-blue/10 flex items-center justify-between">
-          <button className="bg-steel-blue text-white font-mono text-xs uppercase tracking-widest px-8 py-4 hover:bg-brick-red transition-colors cursor-pointer">
+          <button
+            onClick={() => {
+              window.location.href = "/#distributor";
+            }}
+            className="bg-steel-blue text-white font-mono text-xs uppercase tracking-widest px-8 py-4 hover:bg-brick-red transition-colors cursor-pointer"
+          >
             Find a Retailer
           </button>
           <span className="font-mono text-[10px] text-industrial-gray/40 uppercase">

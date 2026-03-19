@@ -8,6 +8,9 @@ export default function Hero() {
   const bridgeRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) return;
+
     const handleScroll = () => {
       if (!bridgeRef.current) return;
       const scrollY = window.scrollY;
@@ -21,7 +24,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-[921px] flex items-center pt-24 overflow-hidden bg-concrete">
+    <section className="relative min-h-[600px] md:min-h-[921px] flex items-center pt-24 overflow-hidden bg-concrete">
       <div className="absolute right-0 top-0 w-3/4 h-full z-0 opacity-40 mix-blend-multiply">
         <Image
           className="w-full h-full object-cover brightness-125 contrast-75 hero-mask"
@@ -60,8 +63,10 @@ export default function Hero() {
             precision-crafted using original 19th-century methods.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <button className="bg-steel-blue text-white px-12 py-5 font-mono uppercase tracking-widest font-bold text-sm flex items-center justify-center hover:bg-dark-steel transition-all">
-              View Technical Specs
+            <button
+              onClick={() => document.getElementById("catalog")?.scrollIntoView({ behavior: "smooth" })}
+              className="bg-steel-blue text-white px-12 py-5 font-mono uppercase tracking-widest font-bold text-sm flex items-center justify-center hover:bg-dark-steel transition-all cursor-pointer">
+              Shop Our Products
               <span className="material-symbols-outlined ml-3">settings</span>
             </button>
           </div>

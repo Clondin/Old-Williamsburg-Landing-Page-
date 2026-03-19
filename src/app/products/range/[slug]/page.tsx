@@ -59,7 +59,7 @@ export default async function RangePage({
 
       {/* Product Grid */}
       <section className="max-w-7xl mx-auto px-8 pb-32">
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {range.products.map((product) => (
             <Link
               key={product.slug}
@@ -75,7 +75,7 @@ export default async function RangePage({
                   alt={product.name}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
               </div>

@@ -18,10 +18,15 @@
 body {
   background-color: #F8F9FA;
   color: #1A202C;
-  background-image:
-    linear-gradient(rgba(44, 82, 130, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(44, 82, 130, 0.03) 1px, transparent 1px);
-  background-size: 40px 40px;
+}
+
+@media (min-width: 768px) {
+  body {
+    background-image:
+      linear-gradient(rgba(44, 82, 130, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(44, 82, 130, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
 }
 
 .blueprint-border {
@@ -136,4 +141,23 @@ body {
 .bridge-parallax {
   transition: transform 0.1s linear;
   will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bridge-svg .bridge-cable,
+  .bridge-svg .bridge-structure,
+  .bridge-svg .bridge-deck,
+  .bridge-svg .bridge-suspender {
+    animation: none;
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
+
+  .bridge-parallax {
+    transition: none;
+  }
+
+  .bridge-container {
+    transform: none !important;
+  }
 }
