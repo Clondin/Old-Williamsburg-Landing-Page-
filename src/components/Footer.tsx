@@ -1,10 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
+import FooterSeal from "./FooterSeal";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-steel-blue text-white pt-20 pb-10">
-      <div className="max-w-7xl mx-auto px-8">
+    <footer className="w-full bg-steel-blue text-white pt-20 pb-10 relative overflow-hidden">
+      {/* Decorative Brand SVG Seal */}
+      <div className="absolute top-12 right-12 w-48 h-48 opacity-20 pointer-events-none origin-center rotate-[-15deg] hidden lg:block text-white">
+        <FooterSeal />
+      </div>
+      <div className="max-w-7xl mx-auto px-8 relative z-10">
         <div className="grid md:grid-cols-4 gap-12 border-b border-white/10 pb-16">
           <div className="md:col-span-2">
             <div className="mb-6">

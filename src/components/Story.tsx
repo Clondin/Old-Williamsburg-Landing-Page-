@@ -28,9 +28,9 @@ export default function Story() {
         <div className="relative">
           <div className="blueprint-border p-1">
             <img
-              alt="Vintage Deli Scene"
+              alt="Rustic New York Market Sketch"
               className="w-full grayscale contrast-125"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrz-QlfguQi5kZvIXWsYo-KIk4kcmmw0r5CsX52awb4tgfzRT880e7X3g_2H3cOz17QB-5sc2WseE7gv3OnjeK2Z0VU618GrQ1iEcQspNzaIRTGHIk_DmcdV4CWPvP6YFAjUl1Tmt0CO3it4dbvXSvWAkxDad6vFMcXCkGQqrzS_ervzilhiJyI7_DQuty60bfvwQbz8V1fMNcMbcCvqbqbVlHN3Dv7ZZhTkJGrLyjYR8ZM79yWPW6yIQWg0FZC-awB4pt1t1aJfc"
+              src="/ny_market_sketch.png"
             />
           </div>
           <div className="absolute -bottom-6 -right-6 bg-steel-blue text-white p-6 font-mono text-xs hidden lg:block shadow-xl">

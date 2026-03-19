@@ -45,9 +45,9 @@ export default function Distributor() {
         <div className="md:col-span-8 bg-concrete border-2 border-steel-blue p-2 relative shadow-2xl">
           <div className="bg-blueprint-bg w-full h-[500px] flex flex-col items-center justify-center relative overflow-hidden">
             <img
-              className="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-multiply grayscale"
-              alt="Technical map of Brooklyn"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZ7tYUjlUYf345L0bvMJiSpLMUQT0m4-flcr9IgP4GwInJH0c_sZFvaZwZFZQhqov1KHoVtsIZgzq3UCMIZiJSI746wJOSknUZ2nvGEOk2HiuC6Is3SkbCs-_M09KFXl6d7W3HZc1tZLRZ3hE8e6aBswjm1Pws5UIm-9XssbjqxSDPy-sn4hr0LJUAL30HHbVP09h-27uZy2UuwTC_Zj4gNKY_A90fYA80C4wmg6Eia1-eVklqYijIKf7rx4y0Q8W4ADrLY4-4o5o"
+              className="absolute inset-0 w-full h-full object-cover opacity-50"
+              alt="Blueprint map of Brooklyn"
+              src="/brooklyn_blueprint_map.png"
             />
             <div className="relative z-10 w-full max-w-md p-10 bg-white/90 backdrop-blur-md border border-steel-blue shadow-lg">
               <h3 className="font-mono text-sm text-brick-red font-bold uppercase mb-6 flex items-center">

@@ -38,7 +38,7 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-8 grid lg:grid-cols-2 gap-12 items-center">
-        <div className="bg-white/40 backdrop-blur-sm p-12 border-l-[12px] border-steel-blue shadow-2xl">
+        <div className="bg-white/20 backdrop-blur-[2px] p-12 border-l-[12px] border-steel-blue shadow-2xl">
           <div className="mb-8 flex items-center space-x-4">
             <Image
               className="w-24 opacity-80"

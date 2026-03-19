@@ -1,14 +1,10 @@
 export default function Quote() {
   return (
     <section className="relative py-24 bg-steel-blue text-white overflow-hidden">
-      <div className="absolute inset-0 opacity-10">
+      <div className="absolute inset-0 opacity-20">
         <div
-          className="w-full h-full"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle, white 1px, transparent 1px)",
-            backgroundSize: "20px 20px",
-          }}
+          className="w-full h-full bg-center bg-cover"
+          style={{ backgroundImage: "url('/deli_sign_background.png')" }}
         />
       </div>
       <div className="relative z-10 text-center px-4 max-w-5xl mx-auto border-y-2 border-white/20 py-16">
