@@ -1,144 +1,409 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Old Williamsburg | Permium Provisions</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <meta name="description"
-        content="Old Williamsburg - Authentic, traditional flavors with a modern twist. Discover our premium Salsas and Smoked Ahi Tuna.">
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Work+Sans:wght@300;400;500;600;700&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+          tailwind.config = {
+            darkMode: "class",
+            theme: {
+              extend: {
+                colors: {
+                  "steel-blue": "#2C5282",
+                  "brick-red": "#A04040",
+                  "concrete": "#E5E7EB",
+                  "blueprint-bg": "#F8F9FA",
+                  "industrial-gray": "#4A5568",
+                  "dark-steel": "#1A365D",
+                  "rust": "#7B241C"
+                },
+                fontFamily: {
+                  "headline": ["Newsreader", "serif"],
+                  "body": ["Work Sans", "sans-serif"],
+                  "mono": ["Space Grotesk", "monospace"],
+                  "label": ["Space Grotesk", "sans-serif"]
+                },
+                borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+              },
+            },
+          }
+    </script>
+<style type="text/tailwindcss">
+        @layer base {
+            body {
+                background-color: #F8F9FA;
+                color: #1A202C;
+                background-image:
+                    linear-gradient(rgba(44, 82, 130, 0.03) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(44, 82, 130, 0.03) 1px, transparent 1px);
+                background-size: 40px 40px;
+            }
+        }
+        .blueprint-border {
+            border: 1px solid #2C5282;
+            position: relative;
+        }
+        .blueprint-border::before {
+            content: 'REF: BW-1892';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            background: #F8F9FA;
+            padding: 0 8px;
+            font-family: 'Space Grotesk', monospace;
+            font-size: 10px;
+            color: #2C5282;
+            letter-spacing: 0.1em;
+        }
+        .hero-mask {
+            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+        }
+        .section-divider {
+            height: 4px;
+            background: repeating-linear-gradient(
+                45deg,
+                #2C5282,
+                #2C5282 10px,
+                #F8F9FA 10px,
+                #F8F9FA 20px
+            );
+        }
+        .red-accent-rule {
+            border-left: 4px solid #A04040;
+        }
+        /* Williamsburg Bridge cross-page animation */
+        .bridge-container {
+            position: absolute;
+            bottom: 0;
+            left: -10%;
+            width: 120%;
+            height: 280px;
+            z-index: 5;
+            pointer-events: none;
+            overflow: visible;
+        }
+        .bridge-svg {
+            width: 100%;
+            height: 100%;
+            opacity: 0.12;
+            filter: drop-shadow(0 2px 8px rgba(44, 82, 130, 0.3));
+        }
+        .bridge-svg .bridge-cable {
+            stroke: #2C5282;
+            stroke-width: 2;
+            fill: none;
+            stroke-dasharray: 2000;
+            stroke-dashoffset: 2000;
+            animation: drawCable 3s ease-out forwards;
+        }
+        .bridge-svg .bridge-cable-2 {
+            animation-delay: 0.3s;
+        }
+        .bridge-svg .bridge-cable-3 {
+            animation-delay: 0.6s;
+        }
+        .bridge-svg .bridge-structure {
+            fill: #2C5282;
+            opacity: 0;
+            animation: fadeStructure 1.5s ease-out 0.5s forwards;
+        }
+        .bridge-svg .bridge-deck {
+            fill: #1A365D;
+            opacity: 0;
+            animation: fadeStructure 1s ease-out 0.2s forwards;
+        }
+        .bridge-svg .bridge-suspender {
+            stroke: #2C5282;
+            stroke-width: 1.5;
+            fill: none;
+            opacity: 0;
+            animation: fadeStructure 0.5s ease-out forwards;
+        }
+        .bridge-svg .bridge-suspender:nth-child(n) {
+            animation-delay: calc(0.8s + var(--i, 0) * 0.08s);
+        }
+        @keyframes drawCable {
+            to { stroke-dashoffset: 0; }
+        }
+        @keyframes fadeStructure {
+            to { opacity: 1; }
+        }
+        /* Bridge parallax on scroll */
+        .bridge-parallax {
+            transition: transform 0.1s linear;
+            will-change: transform;
+        }
+    </style>
 </head>
-
-<body>
-
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#" class="nav-logo">
-                <img src="assets/logo-user.png" alt="Old Williamsburg" style="height: 40px;">
-            </a>
-            <ul class="nav-links">
-                <li><a href="#salsa">Salasa</a></li>
-                <li><a href="#tuna">Smoked Fish</a></li>
-                <li><a href="#story">Our Story</a></li>
-                <li><a href="#contact" class="btn-primary">Find a Store</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header id="hero" class="hero-section">
-        <div class="hero-bg-overlay"></div>
-        <div class="hero-content fade-up">
-            <img src="assets/logo-user.png" alt="Old Williamsburg Logo" class="hero-logo">
-            <h1 class="hero-tagline">Tradition <br> Reimagined</h1>
-            <p class="hero-subtext">Authentic flavors for the modern table.</p>
-            <div class="hero-scroll-indicator">
-                <span>Discover</span>
-                <div class="line"></div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Salsa Section -->
-    <section id="salsa" class="product-section salsa-section">
-        <div class="bg-wood"></div>
-        <div class="container product-grid">
-            <div class="product-visual fade-right">
-                <img src="assets/ingredients.png" alt="" class="floating-ingredients ingredient-1">
-                <img src="assets/ingredients.png" alt="" class="floating-ingredients ingredient-2">
-                <div class="product-image-wrapper">
-                    <!-- Using the salsa image -->
-                    <img src="assets/salsa-updated.jpg" alt="Old Williamsburg Salsa Jars" class="main-product-img">
-                </div>
-            </div>
-            <div class="product-info fade-left">
-                <span class="collection-label">The Salsa Collection</span>
-                <h2 class="product-title">Bold. Authentic. <br>Unforgettable.</h2>
-                <p class="product-description">
-                    Old Williamsburg Salsa delivers authentic, traditional flavor with a modern twist that elevates any
-                    occasion.
-                    Whether served as a bold dip or used as a flavorful topping, this salsa brings classic taste and
-                    everyday convenience together in one crowd-pleasing jar.
-                </p>
-                <div class="flavor-tags">
-                    <span class="tag">Hot Salsa</span>
-                    <span class="tag">Mild Salsa</span>
-                </div>
-                <a href="#" class="btn-text">View Nutrition &rarr;</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Smoked Fish Section -->
-    <section id="tuna" class="product-section tuna-section">
-        <div class="bg-slate"></div>
-        <div class="container product-grid reverse-layout">
-            <div class="product-info fade-right text-light">
-                <span class="collection-label text-gold">Premium Provisions</span>
-                <h2 class="product-title">Sesame Crusted <br>Smoked Ahi Tuna</h2>
-                <p class="product-description">
-                    Wild-caught and crafted with care. Our Smoked Ahi Tuna is sesame crusted, pre-sliced, and ready to
-                    eat.
-                    A delicacy that brings the sophistication of the sea directly to your palate. Shipped frozen to
-                    preserve peak freshness.
-                </p>
-                <div class="certifications">
-                    <span class="cert">Kosher Parve</span>
-                    <span class="cert">Ready to Eat</span>
-                </div>
-                <a href="#" class="btn-text text-gold">View Nutrition &rarr;</a>
-            </div>
-            <div class="product-visual fade-left">
-                <!-- Ingredients removed from here as requested -->
-                <div class="product-image-wrapper">
-                    <img src="assets/tuna-updated.jpg" alt="Smoked Ahi Tuna Package" class="main-product-img tuna-img">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Brand Story / About -->
-    <section id="story" class="story-section">
-        <div class="container story-content fade-up">
-            <img src="assets/logo-user.png" alt="OW" class="mini-logo">
-            <h2>The Williamsburg Standard</h2>
-            <p>
-                Drawing inspiration from the historic roots of quality craftsmanship, Old Williamsburg is dedicated to
-                bringing premium provisions to your home. We believe in simple ingredients, time-honored methods,
-                and flavors that speak for themselves.
+<body class="font-body selection:bg-steel-blue selection:text-white">
+<nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b-2 border-steel-blue">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+<div class="flex items-center space-x-3">
+<img src="assets/logo.svg" alt="Old Williamsburg" class="h-10"/>
+<span class="hidden md:block text-[10px] font-mono text-brick-red tracking-widest uppercase border border-brick-red px-2 py-0.5">Est. 1892</span>
+</div>
+<div class="hidden md:flex items-center space-x-10">
+<a class="uppercase tracking-widest text-[11px] font-label text-industrial-gray hover:text-steel-blue transition-colors font-semibold" href="#">Spec. Story</a>
+<a class="uppercase tracking-widest text-[11px] font-label text-industrial-gray hover:text-steel-blue transition-colors font-semibold" href="#">Component Catalog</a>
+<a class="uppercase tracking-widest text-[11px] font-label text-steel-blue border-b-2 border-brick-red pb-1" href="#">The NY Standard</a>
+<a class="uppercase tracking-widest text-[11px] font-label text-industrial-gray hover:text-steel-blue transition-colors font-semibold" href="#">Distribution</a>
+</div>
+<div class="flex items-center">
+<button class="bg-steel-blue text-white p-2 flex items-center justify-center">
+<span class="material-symbols-outlined text-sm" data-icon="menu">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<section class="relative min-h-[921px] flex items-center pt-24 overflow-hidden bg-concrete">
+<div class="absolute right-0 top-0 w-3/4 h-full z-0 opacity-40 mix-blend-multiply">
+<img class="w-full h-full object-cover brightness-125 contrast-75 hero-mask" alt="Williamsburg Bridge illustration" src="assets/bridge.png"/>
+</div>
+<div class="absolute inset-0 z-0 bg-blue-100/20"></div>
+<!-- Williamsburg Bridge cross-page animation -->
+<div class="bridge-container bridge-parallax" id="bridge-anim">
+<svg class="bridge-svg" viewBox="0 0 1400 280" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+<!-- Bridge deck -->
+<rect class="bridge-deck" x="0" y="210" width="1400" height="18" rx="2"/>
+<rect class="bridge-deck" x="0" y="228" width="1400" height="6" opacity="0.5"/>
+<!-- Left tower -->
+<rect class="bridge-structure" x="320" y="60" width="16" height="170"/>
+<rect class="bridge-structure" x="350" y="60" width="16" height="170"/>
+<rect class="bridge-structure" x="316" y="55" width="54" height="14" rx="2"/>
+<rect class="bridge-structure" x="316" y="100" width="54" height="8"/>
+<rect class="bridge-structure" x="316" y="150" width="54" height="8"/>
+<!-- Right tower -->
+<rect class="bridge-structure" x="1030" y="60" width="16" height="170"/>
+<rect class="bridge-structure" x="1060" y="60" width="16" height="170"/>
+<rect class="bridge-structure" x="1026" y="55" width="54" height="14" rx="2"/>
+<rect class="bridge-structure" x="1026" y="100" width="54" height="8"/>
+<rect class="bridge-structure" x="1026" y="150" width="54" height="8"/>
+<!-- Main cables -->
+<path class="bridge-cable" d="M0,200 Q170,190 343,62 Q510,170 700,185 Q890,170 1053,62 Q1230,190 1400,200"/>
+<path class="bridge-cable bridge-cable-2" d="M0,205 Q170,195 343,68 Q510,175 700,190 Q890,175 1053,68 Q1230,195 1400,205"/>
+<!-- Suspender cables from main cable to deck - left span -->
+<line class="bridge-suspender" style="--i:0" x1="100" y1="197" x2="100" y2="210"/>
+<line class="bridge-suspender" style="--i:1" x1="160" y1="193" x2="160" y2="210"/>
+<line class="bridge-suspender" style="--i:2" x1="220" y1="178" x2="220" y2="210"/>
+<line class="bridge-suspender" style="--i:3" x1="280" y1="140" x2="280" y2="210"/>
+<!-- Suspender cables - center span -->
+<line class="bridge-suspender" style="--i:4" x1="420" y1="120" x2="420" y2="210"/>
+<line class="bridge-suspender" style="--i:5" x1="480" y1="148" x2="480" y2="210"/>
+<line class="bridge-suspender" style="--i:6" x1="540" y1="165" x2="540" y2="210"/>
+<line class="bridge-suspender" style="--i:7" x1="600" y1="177" x2="600" y2="210"/>
+<line class="bridge-suspender" style="--i:8" x1="660" y1="183" x2="660" y2="210"/>
+<line class="bridge-suspender" style="--i:9" x1="700" y1="185" x2="700" y2="210"/>
+<line class="bridge-suspender" style="--i:10" x1="740" y1="183" x2="740" y2="210"/>
+<line class="bridge-suspender" style="--i:11" x1="800" y1="177" x2="800" y2="210"/>
+<line class="bridge-suspender" style="--i:12" x1="860" y1="165" x2="860" y2="210"/>
+<line class="bridge-suspender" style="--i:13" x1="920" y1="148" x2="920" y2="210"/>
+<line class="bridge-suspender" style="--i:14" x1="980" y1="120" x2="980" y2="210"/>
+<!-- Suspender cables - right span -->
+<line class="bridge-suspender" style="--i:15" x1="1120" y1="140" x2="1120" y2="210"/>
+<line class="bridge-suspender" style="--i:16" x1="1180" y1="178" x2="1180" y2="210"/>
+<line class="bridge-suspender" style="--i:17" x1="1240" y1="193" x2="1240" y2="210"/>
+<line class="bridge-suspender" style="--i:18" x1="1300" y1="197" x2="1300" y2="210"/>
+<!-- Diagonal cross-bracing on towers -->
+<line class="bridge-suspender" style="--i:4" x1="320" y1="100" x2="366" y2="150"/>
+<line class="bridge-suspender" style="--i:5" x1="366" y1="100" x2="320" y2="150"/>
+<line class="bridge-suspender" style="--i:4" x1="1030" y1="100" x2="1076" y2="150"/>
+<line class="bridge-suspender" style="--i:5" x1="1076" y1="100" x2="1030" y2="150"/>
+</svg>
+</div>
+<div class="relative z-10 w-full max-w-7xl mx-auto px-8 grid lg:grid-cols-2 gap-12 items-center">
+<div class="bg-white/40 backdrop-blur-sm p-12 border-l-[12px] border-steel-blue shadow-2xl">
+<div class="mb-8 flex items-center space-x-4">
+<img class="w-24 opacity-80" alt="Old Williamsburg logo" src="assets/logo.svg"/>
+<div class="h-px bg-steel-blue flex-grow opacity-30"></div>
+</div>
+<h1 class="font-headline text-5xl md:text-7xl text-steel-blue mb-8 leading-[1.1] font-black tracking-tight uppercase">
+                Born in <span class="text-brick-red italic">Brooklyn</span>. <br/>Engineered for <span class="text-brick-red italic">Generations</span>.
+            </h1>
+<p class="font-body text-xl text-industrial-gray max-w-lg mb-12 leading-relaxed">
+                Premium smoked fish, cured meats, and deli staples — precision-crafted using original 19th-century methods.
             </p>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="container footer-content">
-            <div class="footer-col">
-                <h3>Old Williamsburg</h3>
-                <p>&copy; 2026 Old Williamsburg. All rights reserved.</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-steel-blue text-white px-12 py-5 font-label uppercase tracking-widest font-bold text-sm flex items-center justify-center hover:bg-dark-steel transition-all">
+                    View Technical Specs
+                    <span class="material-symbols-outlined ml-3" data-icon="settings">settings</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<div class="section-divider"></div>
+<section class="py-32 px-8 bg-white relative">
+<div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center">
+<div class="red-accent-rule pl-12">
+<span class="uppercase font-mono text-brick-red tracking-[0.4em] text-xs block mb-6 font-bold">Documented Legacy // BK-92</span>
+<h2 class="font-headline text-5xl md:text-6xl text-steel-blue mb-10 italic font-bold">The New York Way</h2>
+<div class="font-body text-xl text-industrial-gray leading-relaxed space-y-6">
+<p>Since the first pushcarts rolled through the cobblestone streets of old Williamsburg, we've upheld the rigorous standards of New York's culinary pioneers.</p>
+<p>Our tradition isn't just about recipes; it's an obsession with the slow-cured, the hand-sliced, and the barrel-aged. We believe that history is something you can taste—a legacy of craft that lives in every deli counter and family table.</p>
+</div>
+</div>
+<div class="relative">
+<div class="blueprint-border p-1">
+<img alt="Vintage Deli Scene" class="w-full grayscale contrast-125" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrz-QlfguQi5kZvIXWsYo-KIk4kcmmw0r5CsX52awb4tgfzRT880e7X3g_2H3cOz17QB-5sc2WseE7gv3OnjeK2Z0VU618GrQ1iEcQspNzaIRTGHIk_DmcdV4CWPvP6YFAjUl1Tmt0CO3it4dbvXSvWAkxDad6vFMcXCkGQqrzS_ervzilhiJyI7_DQuty60bfvwQbz8V1fMNcMbcCvqbqbVlHN3Dv7ZZhTkJGrLyjYR8ZM79yWPW6yIQWg0FZC-awB4pt1t1aJfc"/>
+</div>
+<div class="absolute -bottom-6 -right-6 bg-steel-blue text-white p-6 font-mono text-xs hidden lg:block shadow-xl">
+                COORDINATES: 40.7081° N, 73.9571° W
             </div>
-            <div class="footer-col">
-                <h4>Explore</h4>
-                <a href="#salsa">Salsa</a>
-                <a href="#tuna">Smoked Fish</a>
-                <a href="#story">Our Story</a>
-            </div>
-            <div class="footer-col">
-                <h4>Contact</h4>
-                <a href="mailto:hello@oldwilliamsburg.com">hello@oldwilliamsburg.com</a>
-                <p>Brooklyn, NY</p>
-            </div>
-        </div>
-    </footer>
+</div>
+</div>
+</section>
+<section class="py-32 px-8 bg-blueprint-bg border-y-2 border-steel-blue/20">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-baseline mb-20 border-b-2 border-steel-blue pb-8">
+<div class="flex items-center gap-6">
+<h2 class="font-headline text-5xl text-steel-blue italic font-bold">The Catalog</h2>
+<span class="bg-brick-red text-white font-mono text-[10px] px-3 py-1 uppercase tracking-tighter">Inventory v1.2</span>
+</div>
+<p class="font-mono text-xs uppercase tracking-widest text-industrial-gray mt-4 md:mt-0">Certified Provisions // Grade A Quality</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+<div class="group border-2 border-steel-blue/10 bg-white p-8 flex flex-col justify-between h-[420px] hover:border-steel-blue transition-all duration-300 relative">
+<div class="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-brick-red opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div>
+<span class="font-mono text-[10px] text-brick-red mb-2 block font-bold">P-01 // SMOKE_DEPT</span>
+<h3 class="font-headline text-3xl text-steel-blue mb-4 font-bold">Smoked Lox</h3>
+<p class="text-industrial-gray leading-relaxed font-light">Cold-smoked over fruitwood for 12 hours. Silk-textured perfection from the North Atlantic.</p>
+</div>
+<div class="mt-8 pt-6 border-t border-steel-blue/10">
+<button class="font-label text-xs uppercase tracking-widest text-steel-blue font-bold flex items-center hover:text-brick-red transition-colors">
+                        View Details
+                        <span class="material-symbols-outlined ml-2 text-sm" data-icon="add_circle">add_circle</span>
+</button>
+</div>
+</div>
+<div class="group border-2 border-steel-blue/10 bg-white p-8 flex flex-col justify-between h-[420px] hover:border-steel-blue transition-all duration-300 relative">
+<div class="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-brick-red opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div>
+<span class="font-mono text-[10px] text-brick-red mb-2 block font-bold">P-02 // COAL_FIRED</span>
+<h3 class="font-headline text-3xl text-steel-blue mb-4 font-bold">Brooklyn Pizza</h3>
+<p class="text-industrial-gray leading-relaxed font-light">The original thin-crust legend. Fermented dough, San Marzano sauce, and coal-fired char.</p>
+</div>
+<div class="mt-8 pt-6 border-t border-steel-blue/10">
+<button class="font-label text-xs uppercase tracking-widest text-steel-blue font-bold flex items-center hover:text-brick-red transition-colors">
+                        View Details
+                        <span class="material-symbols-outlined ml-2 text-sm" data-icon="add_circle">add_circle</span>
+</button>
+</div>
+</div>
+<div class="group border-2 border-steel-blue/10 bg-white p-8 flex flex-col justify-between h-[420px] hover:border-steel-blue transition-all duration-300 relative">
+<div class="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-brick-red opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div>
+<span class="font-mono text-[10px] text-brick-red mb-2 block font-bold">P-03 // CURED_GOODS</span>
+<h3 class="font-headline text-3xl text-steel-blue mb-4 font-bold">Artisan Jerky</h3>
+<p class="text-industrial-gray leading-relaxed font-light">Prime brisket, hand-trimmed and cured with our secret 1892 black pepper and honey rub.</p>
+</div>
+<div class="mt-8 pt-6 border-t border-steel-blue/10">
+<button class="font-label text-xs uppercase tracking-widest text-steel-blue font-bold flex items-center hover:text-brick-red transition-colors">
+                        View Details
+                        <span class="material-symbols-outlined ml-2 text-sm" data-icon="add_circle">add_circle</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="relative py-24 bg-steel-blue text-white overflow-hidden">
+<div class="absolute inset-0 opacity-10">
+<div class="w-full h-full" style="background-image: radial-gradient(circle, white 1px, transparent 1px); background-size: 20px 20px;"></div>
+</div>
+<div class="relative z-10 text-center px-4 max-w-5xl mx-auto border-y-2 border-white/20 py-16">
+<h2 class="font-headline text-4xl md:text-7xl italic font-light tracking-tight mb-8">
+            "Every bite tells a <span class="text-brick-red font-black">New York</span> story."
+        </h2>
+<div class="flex justify-center items-center space-x-6">
+<div class="h-[2px] w-20 bg-white/40"></div>
+<span class="font-mono text-xs uppercase tracking-[0.5em] font-bold">Auth: OW-1892</span>
+<div class="h-[2px] w-20 bg-white/40"></div>
+</div>
+</div>
+</section>
+<section class="py-32 px-8 bg-white">
+<div class="max-w-7xl mx-auto grid md:grid-cols-12 gap-16">
+<div class="md:col-span-4 border-r-2 border-steel-blue/10 pr-12">
+<h2 class="font-headline text-5xl text-steel-blue mb-8 font-bold leading-tight">Locate a <br/><span class="text-brick-red">Distributor</span></h2>
+<p class="font-body text-xl text-industrial-gray mb-12">Authorized retailers and heritage delis carrying our official provisions.</p>
+<div class="space-y-10">
+<div class="flex items-start space-x-4 group">
+<span class="material-symbols-outlined text-brick-red p-2 border-2 border-brick-red/20 group-hover:bg-brick-red group-hover:text-white transition-all" data-icon="room">room</span>
+<div>
+<p class="font-bold text-steel-blue uppercase font-mono text-sm">Central Workshop</p>
+<p class="text-industrial-gray">182 Bedford Ave, Brooklyn, NY</p>
+</div>
+</div>
+<div class="flex items-start space-x-4 group">
+<span class="material-symbols-outlined text-steel-blue p-2 border-2 border-steel-blue/20 group-hover:bg-steel-blue group-hover:text-white transition-all" data-icon="local_shipping">local_shipping</span>
+<div>
+<p class="font-bold text-steel-blue uppercase font-mono text-sm">Logistics Hub</p>
+<p class="text-industrial-gray">Fresh delivery to your coordinate.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="md:col-span-8 bg-concrete border-2 border-steel-blue p-2 relative shadow-2xl">
+<div class="bg-blueprint-bg w-full h-[500px] flex flex-col items-center justify-center relative overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-multiply grayscale" data-alt="Technical map of Brooklyn" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZ7tYUjlUYf345L0bvMJiSpLMUQT0m4-flcr9IgP4GwInJH0c_sZFvaZwZFZQhqov1KHoVtsIZgzq3UCMIZiJSI746wJOSknUZ2nvGEOk2HiuC6Is3SkbCs-_M09KFXl6d7W3HZc1tZLRZ3hE8e6aBswjm1Pws5UIm-9XssbjqxSDPy-sn4hr0LJUAL30HHbVP09h-27uZy2UuwTC_Zj4gNKY_A90fYA80C4wmg6Eia1-eVklqYijIKf7rx4y0Q8W4ADrLY4-4o5o"/>
+<div class="relative z-10 w-full max-w-md p-10 bg-white/90 backdrop-blur-md border border-steel-blue shadow-lg">
+<h3 class="font-mono text-sm text-brick-red font-bold uppercase mb-6 flex items-center">
+<span class="w-8 h-[2px] bg-brick-red mr-4"></span>
+                        Point of Sale Search
+                    </h3>
+<div class="space-y-6">
+<div class="relative">
+<input class="w-full bg-transparent border-0 border-b-2 border-steel-blue/30 text-steel-blue p-4 focus:ring-0 focus:border-steel-blue placeholder:text-steel-blue/40 font-mono text-sm uppercase" placeholder="Enter Zip/Postal Code" type="text"/>
+</div>
+<button class="w-full bg-brick-red text-white py-5 font-label uppercase tracking-widest text-xs font-bold hover:bg-rust transition-colors shadow-lg">Execute Search</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<footer class="w-full bg-steel-blue text-white pt-20 pb-10">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid md:grid-cols-4 gap-12 border-b border-white/10 pb-16">
+<div class="md:col-span-2">
+<div class="mb-6"><img src="assets/logo.svg" alt="Old Williamsburg" class="h-12 brightness-0 invert"/></div>
+<p class="text-white/60 max-w-sm font-light text-sm leading-relaxed">Maintaining the structural integrity of New York culinary traditions since 1892. Original recipes, architectural precision.</p>
+</div>
+<div>
+<h4 class="font-mono text-[10px] uppercase tracking-widest mb-6 text-brick-red font-bold">Internal Refs</h4>
+<ul class="space-y-3 text-xs uppercase tracking-wider font-semibold">
+<li><a class="hover:text-brick-red transition-colors" href="#">Our Standard</a></li>
+<li><a class="hover:text-brick-red transition-colors" href="#">Component Index</a></li>
+<li><a class="hover:text-brick-red transition-colors" href="#">Quality Assurance</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-mono text-[10px] uppercase tracking-widest mb-6 text-brick-red font-bold">Contact Node</h4>
+<ul class="space-y-3 text-xs uppercase tracking-wider font-semibold">
+<li><a class="hover:text-brick-red transition-colors" href="#">Instagram</a></li>
+<li><a class="hover:text-brick-red transition-colors" href="#">Dispatch Support</a></li>
+<li><a class="hover:text-brick-red transition-colors" href="#">Legal Dept</a></li>
+</ul>
+</div>
+</div>
+<div class="pt-10 flex flex-col md:flex-row justify-between items-center text-[10px] font-mono text-white/40 uppercase tracking-[0.2em]">
+<p>© 1892 OLD WILLIAMSBURG PROVISIONS. ALL REPRODUCTION FORBIDDEN.</p>
+<p>BK-USA-718</p>
+</div>
+</div>
+</footer>
 
-    <script src="script.js"></script>
-</body>
-
-</html>
+<script>
+// Bridge parallax scroll effect
+const bridge = document.getElementById('bridge-anim');
+window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    const translateX = scrollY * 0.15;
+    const translateY = scrollY * 0.05;
+    bridge.style.transform = `translate3d(${translateX}px, ${translateY}px, 0)`;
+}, { passive: true });
+</script>
+</body></html>
