@@ -1,44 +1,8 @@
-"use client";
-
-import { useRef, useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ranges } from "@/data/products";
 
 export default function Catalog() {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
-
-  const updateArrows = useCallback(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    setCanScrollLeft(el.scrollLeft > 0);
-    setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 1);
-  }, []);
-
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    updateArrows();
-    el.addEventListener("scroll", updateArrows, { passive: true });
-    window.addEventListener("resize", updateArrows);
-    return () => {
-      el.removeEventListener("scroll", updateArrows);
-      window.removeEventListener("resize", updateArrows);
-    };
-  }, [updateArrows]);
-
-  const scroll = (direction: "left" | "right") => {
-    const el = scrollRef.current;
-    if (!el) return;
-    const cardWidth = 260 + 24; // card width + gap (gap-6 = 24px)
-    el.scrollBy({
-      left: direction === "left" ? -cardWidth : cardWidth,
-      behavior: "smooth",
-    });
-  };
-
   return (
     <section
       id="catalog"
@@ -59,48 +23,7 @@ export default function Catalog() {
           </p>
         </div>
 
-        <div className="relative">
-          {/* Left Arrow */}
-          <button
-            onClick={() => scroll("left")}
-            disabled={!canScrollLeft}
-            className={`absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3 z-10 w-10 h-10 bg-white border-2 flex items-center justify-center transition-all duration-300 shadow-lg ${
-              canScrollLeft
-                ? "border-steel-blue/20 hover:border-steel-blue hover:bg-steel-blue hover:text-white text-steel-blue cursor-pointer"
-                : "border-steel-blue/10 text-steel-blue/20 cursor-default"
-            }`}
-            aria-label="Scroll left"
-          >
-            <span className="material-symbols-outlined">chevron_left</span>
-          </button>
-
-          {/* Right Arrow */}
-          <button
-            onClick={() => scroll("right")}
-            disabled={!canScrollRight}
-            className={`absolute right-0 top-1/2 -translate-y-1/2 translate-x-3 z-10 w-10 h-10 bg-white border-2 flex items-center justify-center transition-all duration-300 shadow-lg ${
-              canScrollRight
-                ? "border-steel-blue/20 hover:border-steel-blue hover:bg-steel-blue hover:text-white text-steel-blue cursor-pointer"
-                : "border-steel-blue/10 text-steel-blue/20 cursor-default"
-            }`}
-            aria-label="Scroll right"
-          >
-            <span className="material-symbols-outlined">chevron_right</span>
-          </button>
-
-          {/* Mobile scroll fade hint */}
-          <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-blueprint-bg to-transparent z-[5] pointer-events-none md:hidden" />
-
-          {/* Scrollable Container */}
-          <div
-            ref={scrollRef}
-            className="flex gap-6 overflow-x-auto pr-8"
-            style={{
-              scrollbarWidth: "none",
-              WebkitOverflowScrolling: "touch",
-              scrollSnapType: "x mandatory",
-            }}
-          >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6">
             {ranges.map((range) => {
               const hasProducts = range.products.length > 0;
               const href = hasProducts
@@ -111,10 +34,9 @@ export default function Catalog() {
                 <Link
                   key={range.slug}
                   href={href}
-                  className={`group border-2 border-steel-blue/10 bg-white overflow-hidden flex flex-col justify-end h-[320px] min-w-[260px] w-[260px] shrink-0 hover:border-steel-blue transition-all duration-300 relative ${
+                  className={`group border-2 border-steel-blue/10 bg-white overflow-hidden flex flex-col justify-end h-[320px] md:h-[380px] xl:h-[420px] hover:border-steel-blue transition-all duration-300 relative ${
                     !hasProducts ? "pointer-events-none opacity-60" : ""
                   }`}
-                  style={{ scrollSnapAlign: "start" }}
                 >
                   <div className="absolute top-0 right-0 w-10 h-10 border-t-2 border-r-2 border-brick-red opacity-0 group-hover:opacity-100 transition-opacity z-20" />
 
@@ -126,7 +48,7 @@ export default function Catalog() {
                         alt={range.name}
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
-                        sizes="260px"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
                       />
                     ) : (
                       <div className="flex items-center justify-center h-full bg-[#f5f5f5]">
@@ -170,7 +92,6 @@ export default function Catalog() {
                 </Link>
               );
             })}
-          </div>
         </div>
       </div>
     </section>
