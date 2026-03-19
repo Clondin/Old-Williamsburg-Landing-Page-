@@ -7,10 +7,10 @@ export default function Distributor() {
   const [zipCode, setZipCode] = useState("");
 
   return (
-    <section id="distributor" className="py-32 px-8 bg-white">
-      <div className="grid md:grid-cols-12 gap-16">
-        <div className="md:col-span-4 border-r-2 border-steel-blue/10 pr-12">
-          <h2 className="font-headline text-5xl text-steel-blue mb-8 font-bold leading-tight">
+    <section id="distributor" className="py-16 md:py-32 px-4 md:px-8 bg-white">
+      <div className="grid md:grid-cols-12 gap-8 md:gap-16 max-w-7xl mx-auto">
+        <div className="md:col-span-4 md:border-r-2 border-steel-blue/10 md:pr-12">
+          <h2 className="font-headline text-3xl md:text-5xl text-steel-blue mb-8 font-bold leading-tight">
             Locate a <br />
             <span className="text-brick-red">Distributor</span>
           </h2>
@@ -54,14 +54,14 @@ export default function Distributor() {
           </div>
         </div>
         <div className="md:col-span-8 bg-concrete border-2 border-steel-blue p-2 relative shadow-2xl">
-          <div className="bg-blueprint-bg w-full h-[500px] flex flex-col items-center justify-center relative overflow-hidden">
+          <div className="bg-blueprint-bg w-full h-[300px] md:h-[500px] flex flex-col items-center justify-center relative overflow-hidden">
             <Image
               className="absolute inset-0 w-full h-full object-cover opacity-50"
               alt="Blueprint map of Brooklyn"
               src="/brooklyn_blueprint_map.png"
               fill
             />
-            <div className="relative z-10 w-full max-w-md p-10 bg-white/90 backdrop-blur-md border border-steel-blue shadow-lg">
+            <div className="relative z-10 w-full max-w-md p-6 md:p-10 bg-white/90 backdrop-blur-md border border-steel-blue shadow-lg">
               <h3 className="font-mono text-sm text-brick-red font-bold uppercase mb-6 flex items-center">
                 <span className="w-8 h-[2px] bg-brick-red mr-4" />
                 Find a Store Near You

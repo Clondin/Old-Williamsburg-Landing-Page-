@@ -14,7 +14,7 @@ export default function Hero() {
     const handleScroll = () => {
       if (!bridgeRef.current) return;
       const scrollY = window.scrollY;
-      const translateX = scrollY * 0.15;
+      const translateX = Math.min(scrollY * 0.15, 100);
       const translateY = scrollY * 0.05;
       bridgeRef.current.style.transform = `translate3d(${translateX}px, ${translateY}px, 0)`;
     };
@@ -40,8 +40,8 @@ export default function Hero() {
         <BridgeSvg />
       </div>
 
-      <div className="relative z-10 w-full px-8 grid lg:grid-cols-2 gap-12 items-center">
-        <div className="bg-white/20 backdrop-blur-[2px] p-12 border-l-[12px] border-steel-blue shadow-2xl">
+      <div className="relative z-10 w-full px-4 md:px-8 max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+        <div className="bg-white/20 backdrop-blur-[2px] p-6 md:p-12 border-l-4 md:border-l-[12px] border-steel-blue shadow-2xl">
           <div className="mb-8 flex items-center space-x-4">
             <Image
               className="w-24 opacity-80"
@@ -52,20 +52,20 @@ export default function Hero() {
             />
             <div className="h-px bg-steel-blue flex-grow opacity-30" />
           </div>
-          <h1 className="font-headline text-5xl md:text-7xl text-steel-blue mb-8 leading-[1.1] font-black tracking-tight uppercase">
+          <h1 className="font-headline text-3xl sm:text-5xl md:text-7xl text-steel-blue mb-8 leading-[1.1] font-black tracking-tight uppercase">
             Born in <span className="text-brick-red italic">Brooklyn</span>.{" "}
             <br />
             Engineered for{" "}
             <span className="text-brick-red italic">Generations</span>.
           </h1>
-          <p className="font-body text-xl text-industrial-gray max-w-lg mb-12 leading-relaxed">
+          <p className="font-body text-xl text-industrial-gray max-w-lg mb-6 md:mb-12 leading-relaxed">
             Premium smoked fish, cured meats, and deli staples —
             precision-crafted using original 19th-century methods.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <button
               onClick={() => document.getElementById("catalog")?.scrollIntoView({ behavior: "smooth" })}
-              className="bg-steel-blue text-white px-12 py-5 font-mono uppercase tracking-widest font-bold text-sm flex items-center justify-center hover:bg-dark-steel transition-all cursor-pointer">
+              className="bg-steel-blue text-white px-6 sm:px-12 py-4 sm:py-5 font-mono uppercase tracking-widest font-bold text-sm flex items-center justify-center hover:bg-dark-steel transition-all cursor-pointer">
               Shop Our Products
               <span className="material-symbols-outlined ml-3">settings</span>
             </button>

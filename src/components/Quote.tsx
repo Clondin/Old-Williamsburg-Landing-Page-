@@ -13,12 +13,12 @@ export default function Quote() {
           <span className="text-brick-red font-black">New York</span>{" "}
           story.&rdquo;
         </h2>
-        <div className="flex justify-center items-center space-x-6">
-          <div className="h-[2px] w-20 bg-white/40" />
-          <span className="font-mono text-xs uppercase tracking-[0.5em] font-bold">
+        <div className="flex justify-center items-center space-x-3 sm:space-x-6">
+          <div className="h-[2px] w-20 bg-white/40 hidden sm:block" />
+          <span className="font-mono text-xs uppercase tracking-[0.2em] sm:tracking-[0.5em] font-bold">
             Old Williamsburg, Est. 1892
           </span>
-          <div className="h-[2px] w-20 bg-white/40" />
+          <div className="h-[2px] w-20 bg-white/40 hidden sm:block" />
         </div>
       </div>
     </section>

@@ -10,7 +10,7 @@ export default function Footer() {
         <FooterSeal />
       </div>
       <div className="px-8 relative z-10">
-        <div className="grid md:grid-cols-4 gap-12 border-b border-white/10 pb-16">
+        <div className="grid md:grid-cols-4 gap-8 md:gap-12 border-b border-white/10 pb-16">
           <div className="md:col-span-2">
             <div className="mb-6">
               <Image
@@ -32,17 +32,17 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3 text-xs uppercase tracking-wider font-semibold">
               <li>
-                <Link className="hover:text-brick-red transition-colors" href="#story">
+                <Link className="hover:text-brick-red transition-colors py-2 inline-block" href="#story">
                   Our Story
                 </Link>
               </li>
               <li>
-                <Link className="hover:text-brick-red transition-colors" href="#catalog">
+                <Link className="hover:text-brick-red transition-colors py-2 inline-block" href="#catalog">
                   Products
                 </Link>
               </li>
               <li>
-                <Link className="hover:text-brick-red transition-colors" href="#quote">
+                <Link className="hover:text-brick-red transition-colors py-2 inline-block" href="#quote">
                   Quality Assurance
                 </Link>
               </li>
@@ -54,17 +54,17 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3 text-xs uppercase tracking-wider font-semibold">
               <li>
-                <Link className="hover:text-brick-red transition-colors" href="#">
+                <Link className="hover:text-brick-red transition-colors py-2 inline-block" href="#">
                   Instagram
                 </Link>
               </li>
               <li>
-                <Link className="hover:text-brick-red transition-colors" href="#">
+                <Link className="hover:text-brick-red transition-colors py-2 inline-block" href="#">
                   Customer Support
                 </Link>
               </li>
               <li>
-                <Link className="hover:text-brick-red transition-colors" href="#">
+                <Link className="hover:text-brick-red transition-colors py-2 inline-block" href="#">
                   Legal
                 </Link>
               </li>

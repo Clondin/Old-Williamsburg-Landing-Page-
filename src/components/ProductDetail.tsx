@@ -49,12 +49,12 @@ export default function ProductDetail({ product }: { product: Product }) {
             priority
           />
         </div>
-        <div className="flex gap-3 mt-4">
+        <div className="flex flex-wrap gap-3 mt-4">
           {allImages.map((img, i) => (
             <button
               key={`${variantIndex}-${img}`}
               onClick={() => setActiveImage(i)}
-              className={`relative w-20 h-20 border-2 overflow-hidden transition-all cursor-pointer skeleton ${
+              className={`relative w-16 h-16 sm:w-20 sm:h-20 border-2 overflow-hidden transition-all cursor-pointer skeleton ${
                 activeImage === i
                   ? "border-brick-red"
                   : "border-steel-blue/10 hover:border-steel-blue/30"
@@ -91,7 +91,7 @@ export default function ProductDetail({ product }: { product: Product }) {
               <h2 className="font-mono text-[10px] uppercase tracking-widest text-steel-blue font-bold mb-3">
                 Select Size
               </h2>
-              <div className="flex gap-3" role="group" aria-label="Size options">
+              <div className="flex flex-wrap gap-3" role="group" aria-label="Size options">
                 {product.variants!.map((v, i) => (
                   <button
                     key={v.sku}
@@ -170,7 +170,7 @@ export default function ProductDetail({ product }: { product: Product }) {
           </div>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-steel-blue/10 flex items-center justify-between">
+        <div className="mt-10 pt-6 border-t border-steel-blue/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <button
             onClick={() => {
               window.location.href = "/#distributor";

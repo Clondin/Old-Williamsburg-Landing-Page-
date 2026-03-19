@@ -39,7 +39,7 @@ export default async function ProductPage({
     <main className="min-h-screen bg-blueprint-bg">
       {/* Breadcrumb */}
       <div className="max-w-7xl mx-auto px-8 pt-28 pb-4">
-        <nav className="font-mono text-[10px] uppercase tracking-widest text-industrial-gray flex items-center gap-2">
+        <nav className="font-mono text-[10px] uppercase tracking-widest text-industrial-gray flex flex-wrap items-center gap-2">
           <Link
             href="/"
             className="hover:text-steel-blue transition-colors"
@@ -70,10 +70,10 @@ export default async function ProductPage({
       </div>
 
       {/* Product Section */}
-      <section className="max-w-7xl mx-auto px-8 pb-32">
+      <section className="max-w-7xl mx-auto px-8 pb-16 lg:pb-32">
         <div className="border-2 border-steel-blue/20 bg-white relative">
-          <div className="absolute top-0 right-0 w-24 h-24 border-t-2 border-r-2 border-brick-red" />
-          <div className="absolute bottom-0 left-0 w-24 h-24 border-b-2 border-l-2 border-brick-red" />
+          <div className="absolute top-0 right-0 w-12 h-12 sm:w-24 sm:h-24 border-t-2 border-r-2 border-brick-red" />
+          <div className="absolute bottom-0 left-0 w-12 h-12 sm:w-24 sm:h-24 border-b-2 border-l-2 border-brick-red" />
 
           <ProductDetail product={product} />
         </div>
@@ -81,7 +81,7 @@ export default async function ProductPage({
 
       {/* Related Products */}
       {range && range.products.filter(p => p.slug !== product.slug).length > 0 && (
-        <section className="max-w-7xl mx-auto px-8 pb-32">
+        <section className="max-w-7xl mx-auto px-8 pb-16 lg:pb-32">
           <h2 className="font-headline text-3xl text-steel-blue italic font-bold mb-8">
             You May Also Like
           </h2>
@@ -93,7 +93,7 @@ export default async function ProductPage({
                 <Link
                   key={related.slug}
                   href={`/products/${related.slug}`}
-                  className="group border-2 border-steel-blue/10 bg-white overflow-hidden flex flex-col justify-end h-[280px] hover:border-steel-blue transition-all duration-300 relative"
+                  className="group border-2 border-steel-blue/10 bg-white overflow-hidden flex flex-col justify-end min-h-[240px] sm:min-h-[280px] hover:border-steel-blue transition-all duration-300 relative"
                 >
                   <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-brick-red opacity-0 group-hover:opacity-100 transition-opacity z-20" />
                   <div className="absolute inset-0 z-0">

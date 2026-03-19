@@ -2,16 +2,16 @@ import Image from "next/image";
 
 export default function Story() {
   return (
-    <section id="story" className="py-32 px-8 bg-white relative">
-      <div className="grid md:grid-cols-2 gap-20 items-center">
-        <div className="red-accent-rule pl-12">
+    <section id="story" className="py-16 md:py-32 px-8 bg-white relative">
+      <div className="grid md:grid-cols-2 gap-10 md:gap-20 items-center max-w-7xl mx-auto">
+        <div className="red-accent-rule pl-6 md:pl-12">
           <span className="uppercase font-mono text-brick-red tracking-[0.4em] text-xs block mb-6 font-bold">
             Our Heritage // Brooklyn, NY
           </span>
-          <h2 className="font-headline text-5xl md:text-6xl text-steel-blue mb-10 italic font-bold">
+          <h2 className="font-headline text-3xl md:text-5xl lg:text-6xl text-steel-blue mb-10 italic font-bold">
             The New York Way
           </h2>
-          <div className="font-body text-xl text-industrial-gray leading-relaxed space-y-6">
+          <div className="font-body text-base md:text-xl text-industrial-gray leading-relaxed space-y-6">
             <p>
               Since the first pushcarts rolled through the cobblestone streets
               of old Williamsburg, we&apos;ve upheld the rigorous standards of New

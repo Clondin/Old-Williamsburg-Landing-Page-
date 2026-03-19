@@ -6,12 +6,12 @@ export default function Catalog() {
   return (
     <section
       id="catalog"
-      className="py-32 px-8 bg-blueprint-bg border-y-2 border-steel-blue/20"
+      className="py-16 md:py-32 px-4 md:px-8 bg-blueprint-bg border-y-2 border-steel-blue/20"
     >
       <div>
-        <div className="flex flex-col md:flex-row justify-between items-baseline mb-20 border-b-2 border-steel-blue pb-8">
+        <div className="flex flex-col lg:flex-row justify-between items-baseline mb-10 md:mb-20 border-b-2 border-steel-blue pb-8">
           <div className="flex items-center gap-6">
-            <h2 className="font-headline text-5xl text-steel-blue italic font-bold">
+            <h2 className="font-headline text-3xl md:text-5xl text-steel-blue italic font-bold">
               Our Products
             </h2>
             <span className="bg-brick-red text-white font-mono text-[10px] px-3 py-1 uppercase tracking-tighter">
@@ -63,7 +63,7 @@ export default function Catalog() {
 
                   <div className="relative z-10 p-5 flex flex-col h-full justify-end text-white">
                     <div>
-                      <span className="font-mono text-[9px] text-brick-red mb-1 block font-bold">
+                      <span className="font-mono text-[10px] text-brick-red mb-1 block font-bold">
                         {range.code}
                       </span>
                       <h3 className="font-headline text-xl mb-1 font-bold text-white">

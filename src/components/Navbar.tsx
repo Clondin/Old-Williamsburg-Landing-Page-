@@ -54,7 +54,7 @@ export default function Navbar() {
         </div>
         <div className="flex items-center md:hidden">
           <button
-            className="bg-steel-blue text-white p-2 flex items-center justify-center"
+            className="bg-steel-blue text-white p-3 min-w-[44px] min-h-[44px] flex items-center justify-center"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-expanded={mobileMenuOpen}
             aria-label="Toggle navigation menu"
@@ -69,28 +69,28 @@ export default function Navbar() {
         <div className="md:hidden border-t border-steel-blue/20 bg-white/95 backdrop-blur-md">
           <div className="flex flex-col px-6 py-4 space-y-4">
             <Link
-              className="uppercase tracking-widest text-[11px] font-mono text-industrial-gray hover:text-steel-blue transition-colors font-semibold"
+              className="py-3 uppercase tracking-widest text-[11px] font-mono text-industrial-gray hover:text-steel-blue transition-colors font-semibold"
               href="#story"
               onClick={handleLinkClick}
             >
               Our Story
             </Link>
             <Link
-              className="uppercase tracking-widest text-[11px] font-mono text-industrial-gray hover:text-steel-blue transition-colors font-semibold"
+              className="py-3 uppercase tracking-widest text-[11px] font-mono text-industrial-gray hover:text-steel-blue transition-colors font-semibold"
               href="#catalog"
               onClick={handleLinkClick}
             >
               Products
             </Link>
             <Link
-              className="uppercase tracking-widest text-[11px] font-mono text-industrial-gray hover:text-steel-blue transition-colors font-semibold"
+              className="py-3 uppercase tracking-widest text-[11px] font-mono text-industrial-gray hover:text-steel-blue transition-colors font-semibold"
               href="#quote"
               onClick={handleLinkClick}
             >
               The Standard
             </Link>
             <Link
-              className="uppercase tracking-widest text-[11px] font-mono text-industrial-gray hover:text-steel-blue transition-colors font-semibold"
+              className="py-3 uppercase tracking-widest text-[11px] font-mono text-industrial-gray hover:text-steel-blue transition-colors font-semibold"
               href="#distributor"
               onClick={handleLinkClick}
             >

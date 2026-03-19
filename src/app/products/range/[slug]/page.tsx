@@ -20,8 +20,8 @@ export default async function RangePage({
   return (
     <main className="min-h-screen bg-blueprint-bg">
       {/* Breadcrumb */}
-      <div className="max-w-7xl mx-auto px-8 pt-28 pb-4">
-        <nav className="font-mono text-[10px] uppercase tracking-widest text-industrial-gray flex items-center gap-2">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 pt-28 pb-4">
+        <nav className="font-mono text-[10px] uppercase tracking-widest text-industrial-gray flex flex-wrap items-center gap-2">
           <Link href="/" className="hover:text-steel-blue transition-colors">
             Home
           </Link>
@@ -51,10 +51,10 @@ export default async function RangePage({
               />
             </div>
           )}
-          <div className="relative z-10 p-8 md:p-12">
+          <div className="relative z-10 p-6 md:p-12">
             <div className="flex flex-col md:flex-row justify-between items-baseline mb-6">
-              <div className="flex items-center gap-6">
-                <h1 className="font-headline text-5xl text-steel-blue italic font-bold">
+              <div className="flex items-center gap-3 md:gap-6">
+                <h1 className="font-headline text-3xl md:text-5xl text-steel-blue italic font-bold">
                   {range.name}
                 </h1>
                 <span className="bg-brick-red text-white font-mono text-[10px] px-3 py-1 uppercase tracking-tighter">
@@ -73,13 +73,13 @@ export default async function RangePage({
       </section>
 
       {/* Product Grid */}
-      <section className="max-w-7xl mx-auto px-8 pb-32">
+      <section className="max-w-7xl mx-auto px-4 md:px-8 pb-16 md:pb-32">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {range.products.map((product) => (
             <Link
               key={product.slug}
               href={`/products/${product.slug}`}
-              className="group border-2 border-steel-blue/10 bg-white overflow-hidden flex flex-col justify-end h-[320px] hover:border-steel-blue transition-all duration-300 relative"
+              className="group border-2 border-steel-blue/10 bg-white overflow-hidden flex flex-col justify-end h-[260px] sm:h-[320px] hover:border-steel-blue transition-all duration-300 relative"
             >
               <div className="absolute top-0 right-0 w-10 h-10 border-t-2 border-r-2 border-brick-red opacity-0 group-hover:opacity-100 transition-opacity z-20" />
 
