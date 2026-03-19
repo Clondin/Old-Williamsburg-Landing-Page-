@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Story() {
   return (
     <section id="story" className="py-32 px-8 bg-white relative">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center">
+      <div className="grid md:grid-cols-2 gap-20 items-center">
         <div className="red-accent-rule pl-12">
           <span className="uppercase font-mono text-brick-red tracking-[0.4em] text-xs block mb-6 font-bold">
             Our Heritage // Brooklyn, NY

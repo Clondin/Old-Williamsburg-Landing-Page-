@@ -19,7 +19,7 @@ export default function Navbar() {
       >
         Skip to content
       </a>
-      <div className="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+      <div className="flex justify-between items-center w-full px-6 py-4">
         <div className="flex items-center space-x-3">
           <Image src="/logo.svg" alt="Old Williamsburg" width={160} height={40} className="h-10 w-auto" />
           <span className="hidden md:block text-[10px] font-mono text-brick-red tracking-widest uppercase border border-brick-red px-2 py-0.5">

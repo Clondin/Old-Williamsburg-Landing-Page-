@@ -8,7 +8,7 @@ export default function Distributor() {
 
   return (
     <section id="distributor" className="py-32 px-8 bg-white">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-16">
+      <div className="grid md:grid-cols-12 gap-16">
         <div className="md:col-span-4 border-r-2 border-steel-blue/10 pr-12">
           <h2 className="font-headline text-5xl text-steel-blue mb-8 font-bold leading-tight">
             Locate a <br />

@@ -7,7 +7,7 @@ export default function Quote() {
           style={{ backgroundImage: "url('/deli_sign_background.png')" }}
         />
       </div>
-      <div className="relative z-10 text-center px-4 max-w-5xl mx-auto border-y-2 border-white/20 py-16">
+      <div className="relative z-10 text-center px-8 border-y-2 border-white/20 py-16">
         <h2 className="font-headline text-4xl md:text-7xl italic font-light tracking-tight mb-8">
           &ldquo;Every bite tells a{" "}
           <span className="text-brick-red font-black">New York</span>{" "}

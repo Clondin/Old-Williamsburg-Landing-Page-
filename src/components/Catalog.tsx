@@ -44,7 +44,7 @@ export default function Catalog() {
       id="catalog"
       className="py-32 px-8 bg-blueprint-bg border-y-2 border-steel-blue/20"
     >
-      <div className="max-w-7xl mx-auto">
+      <div>
         <div className="flex flex-col md:flex-row justify-between items-baseline mb-20 border-b-2 border-steel-blue pb-8">
           <div className="flex items-center gap-6">
             <h2 className="font-headline text-5xl text-steel-blue italic font-bold">
