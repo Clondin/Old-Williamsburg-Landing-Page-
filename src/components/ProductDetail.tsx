@@ -39,7 +39,7 @@ export default function ProductDetail({ product }: { product: Product }) {
     <div className="grid grid-cols-1 lg:grid-cols-2">
       {/* Image Gallery */}
       <div className="p-8 lg:p-12 flex flex-col">
-        <div className="relative aspect-[3/4] bg-[#f5f5f5] border border-steel-blue/10 overflow-hidden">
+        <div className="relative aspect-[3/4] skeleton border border-steel-blue/10 overflow-hidden">
           <Image
             src={allImages[activeImage]}
             alt={product.name}
@@ -54,7 +54,7 @@ export default function ProductDetail({ product }: { product: Product }) {
             <button
               key={`${variantIndex}-${img}`}
               onClick={() => setActiveImage(i)}
-              className={`relative w-20 h-20 border-2 overflow-hidden transition-all cursor-pointer ${
+              className={`relative w-20 h-20 border-2 overflow-hidden transition-all cursor-pointer skeleton ${
                 activeImage === i
                   ? "border-brick-red"
                   : "border-steel-blue/10 hover:border-steel-blue/30"
@@ -113,7 +113,7 @@ export default function ProductDetail({ product }: { product: Product }) {
           {/* Specs */}
           <div className="space-y-4 border-t border-steel-blue/10 pt-6">
             <h2 className="font-mono text-[10px] uppercase tracking-widest text-steel-blue font-bold mb-4">
-              Technical Specifications
+              Product Details
             </h2>
             <div className="grid grid-cols-2 gap-4">
               <div>

@@ -61,26 +61,32 @@ export default function Catalog() {
 
         <div className="relative">
           {/* Left Arrow */}
-          {canScrollLeft && (
-            <button
-              onClick={() => scroll("left")}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3 z-10 w-10 h-10 bg-white border-2 border-steel-blue/20 flex items-center justify-center hover:border-steel-blue hover:bg-steel-blue hover:text-white text-steel-blue transition-all duration-300 shadow-lg cursor-pointer"
-              aria-label="Scroll left"
-            >
-              <span className="material-symbols-outlined">chevron_left</span>
-            </button>
-          )}
+          <button
+            onClick={() => scroll("left")}
+            disabled={!canScrollLeft}
+            className={`absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3 z-10 w-10 h-10 bg-white border-2 flex items-center justify-center transition-all duration-300 shadow-lg ${
+              canScrollLeft
+                ? "border-steel-blue/20 hover:border-steel-blue hover:bg-steel-blue hover:text-white text-steel-blue cursor-pointer"
+                : "border-steel-blue/10 text-steel-blue/20 cursor-default"
+            }`}
+            aria-label="Scroll left"
+          >
+            <span className="material-symbols-outlined">chevron_left</span>
+          </button>
 
           {/* Right Arrow */}
-          {canScrollRight && (
-            <button
-              onClick={() => scroll("right")}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-3 z-10 w-10 h-10 bg-white border-2 border-steel-blue/20 flex items-center justify-center hover:border-steel-blue hover:bg-steel-blue hover:text-white text-steel-blue transition-all duration-300 shadow-lg cursor-pointer"
-              aria-label="Scroll right"
-            >
-              <span className="material-symbols-outlined">chevron_right</span>
-            </button>
-          )}
+          <button
+            onClick={() => scroll("right")}
+            disabled={!canScrollRight}
+            className={`absolute right-0 top-1/2 -translate-y-1/2 translate-x-3 z-10 w-10 h-10 bg-white border-2 flex items-center justify-center transition-all duration-300 shadow-lg ${
+              canScrollRight
+                ? "border-steel-blue/20 hover:border-steel-blue hover:bg-steel-blue hover:text-white text-steel-blue cursor-pointer"
+                : "border-steel-blue/10 text-steel-blue/20 cursor-default"
+            }`}
+            aria-label="Scroll right"
+          >
+            <span className="material-symbols-outlined">chevron_right</span>
+          </button>
 
           {/* Mobile scroll fade hint */}
           <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-blueprint-bg to-transparent z-[5] pointer-events-none md:hidden" />
@@ -92,6 +98,7 @@ export default function Catalog() {
             style={{
               scrollbarWidth: "none",
               WebkitOverflowScrolling: "touch",
+              scrollSnapType: "x mandatory",
             }}
           >
             {ranges.map((range) => {
@@ -107,11 +114,12 @@ export default function Catalog() {
                   className={`group border-2 border-steel-blue/10 bg-white overflow-hidden flex flex-col justify-end h-[320px] min-w-[260px] w-[260px] shrink-0 hover:border-steel-blue transition-all duration-300 relative ${
                     !hasProducts ? "pointer-events-none opacity-60" : ""
                   }`}
+                  style={{ scrollSnapAlign: "start" }}
                 >
                   <div className="absolute top-0 right-0 w-10 h-10 border-t-2 border-r-2 border-brick-red opacity-0 group-hover:opacity-100 transition-opacity z-20" />
 
                   {/* Range Image Background */}
-                  <div className="absolute inset-0 z-0">
+                  <div className="absolute inset-0 z-0 skeleton">
                     {range.image ? (
                       <Image
                         src={range.image}

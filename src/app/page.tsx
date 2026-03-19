@@ -5,6 +5,7 @@ import Catalog from "@/components/Catalog";
 import Quote from "@/components/Quote";
 import Distributor from "@/components/Distributor";
 import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <Quote />
       <Distributor />
       <Footer />
+      <ScrollToTop />
     </>
   );
 }

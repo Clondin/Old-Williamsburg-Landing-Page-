@@ -18,6 +18,7 @@
 body {
   background-color: #F8F9FA;
   color: #1A202C;
+  overflow-x: hidden;
 }
 
 @media (min-width: 768px) {
@@ -143,6 +144,26 @@ body {
   will-change: transform;
 }
 
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #f5f5f5 25%,
+    #ebebeb 50%,
+    #f5f5f5 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .bridge-svg .bridge-cable,
   .bridge-svg .bridge-structure,
@@ -159,5 +180,9 @@ body {
 
   .bridge-container {
     transform: none !important;
+  }
+
+  .skeleton {
+    animation: none;
   }
 }

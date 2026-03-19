@@ -30,7 +30,7 @@ export default async function RangePage({
             href="/#catalog"
             className="hover:text-steel-blue transition-colors"
           >
-            Catalog
+            Products
           </Link>
           <span>/</span>
           <span className="text-steel-blue font-bold">{range.name}</span>
@@ -39,22 +39,37 @@ export default async function RangePage({
 
       {/* Range Header */}
       <section className="max-w-7xl mx-auto px-8 pb-8">
-        <div className="border-b-2 border-steel-blue pb-8 mb-12 flex flex-col md:flex-row justify-between items-baseline">
-          <div className="flex items-center gap-6">
-            <h1 className="font-headline text-5xl text-steel-blue italic font-bold">
-              {range.name}
-            </h1>
-            <span className="bg-brick-red text-white font-mono text-[10px] px-3 py-1 uppercase tracking-tighter">
-              {range.code}
-            </span>
+        <div className="relative overflow-hidden border-2 border-steel-blue/20 bg-white mb-12">
+          {range.image && (
+            <div className="absolute inset-0 z-0">
+              <Image
+                src={range.image}
+                alt={range.name}
+                fill
+                className="object-cover opacity-15"
+                sizes="100vw"
+              />
+            </div>
+          )}
+          <div className="relative z-10 p-8 md:p-12">
+            <div className="flex flex-col md:flex-row justify-between items-baseline mb-6">
+              <div className="flex items-center gap-6">
+                <h1 className="font-headline text-5xl text-steel-blue italic font-bold">
+                  {range.name}
+                </h1>
+                <span className="bg-brick-red text-white font-mono text-[10px] px-3 py-1 uppercase tracking-tighter">
+                  {range.code}
+                </span>
+              </div>
+              <p className="font-mono text-xs uppercase tracking-widest text-industrial-gray mt-4 md:mt-0">
+                {range.products.length} Products
+              </p>
+            </div>
+            <p className="text-industrial-gray leading-relaxed font-light text-lg max-w-2xl">
+              {range.tagline}
+            </p>
           </div>
-          <p className="font-mono text-xs uppercase tracking-widest text-industrial-gray mt-4 md:mt-0">
-            {range.products.length} Products
-          </p>
         </div>
-        <p className="text-industrial-gray leading-relaxed font-light text-lg max-w-2xl mb-16">
-          {range.tagline}
-        </p>
       </section>
 
       {/* Product Grid */}
@@ -69,7 +84,7 @@ export default async function RangePage({
               <div className="absolute top-0 right-0 w-10 h-10 border-t-2 border-r-2 border-brick-red opacity-0 group-hover:opacity-100 transition-opacity z-20" />
 
               {/* Product Image Background */}
-              <div className="absolute inset-0 z-0">
+              <div className="absolute inset-0 z-0 skeleton">
                 <Image
                   src={product.image}
                   alt={product.name}
@@ -91,9 +106,14 @@ export default async function RangePage({
                 <span className="font-mono text-[10px] text-white/60 uppercase mb-2">
                   {product.weight}
                 </span>
+                {product.variants && product.variants.length > 1 && (
+                  <span className="font-mono text-[9px] text-white/80 bg-white/20 px-2 py-0.5 mt-1 inline-block">
+                    {product.variants.length} sizes available
+                  </span>
+                )}
                 <div className="mt-2 pt-2 border-t border-white/20">
                   <span className="font-mono text-xs uppercase tracking-widest font-bold flex items-center group-hover:text-brick-red transition-colors text-white">
-                    View
+                    View Details
                     <span className="material-symbols-outlined ml-1 text-sm group-hover:translate-x-1 transition-transform">
                       arrow_forward
                     </span>

@@ -40,7 +40,7 @@ export default function Navbar() {
             Products
           </Link>
           <Link
-            className="uppercase tracking-widest text-[11px] font-mono text-steel-blue border-b-2 border-brick-red pb-1"
+            className="uppercase tracking-widest text-[11px] font-mono text-industrial-gray hover:text-steel-blue transition-colors font-semibold"
             href="#quote"
           >
             The Standard
@@ -83,7 +83,7 @@ export default function Navbar() {
               Products
             </Link>
             <Link
-              className="uppercase tracking-widest text-[11px] font-mono text-steel-blue border-b-2 border-brick-red pb-1 self-start"
+              className="uppercase tracking-widest text-[11px] font-mono text-industrial-gray hover:text-steel-blue transition-colors font-semibold"
               href="#quote"
               onClick={handleLinkClick}
             >
