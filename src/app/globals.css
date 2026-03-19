@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-steel-blue: #2C5282;
+  --color-brick-red: #A04040;
+  --color-concrete: #E5E7EB;
+  --color-blueprint-bg: #F8F9FA;
+  --color-industrial-gray: #4A5568;
+  --color-dark-steel: #1A365D;
+  --color-rust: #7B241C;
+
+  --font-headline: "Newsreader", serif;
+  --font-body: "Work Sans", sans-serif;
+  --font-mono: "Space Grotesk", monospace;
+  --font-label: "Space Grotesk", sans-serif;
+}
+
+body {
+  background-color: #F8F9FA;
+  color: #1A202C;
+  background-image:
+    linear-gradient(rgba(44, 82, 130, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(44, 82, 130, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.blueprint-border {
+  border: 1px solid #2C5282;
+  position: relative;
+}
+
+.blueprint-border::before {
+  content: "REF: BW-1892";
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  background: #F8F9FA;
+  padding: 0 8px;
+  font-family: "Space Grotesk", monospace;
+  font-size: 10px;
+  color: #2C5282;
+  letter-spacing: 0.1em;
+}
+
+.hero-mask {
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+
+.section-divider {
+  height: 4px;
+  background: repeating-linear-gradient(
+    45deg,
+    #2C5282,
+    #2C5282 10px,
+    #F8F9FA 10px,
+    #F8F9FA 20px
+  );
+}
+
+.red-accent-rule {
+  border-left: 4px solid #A04040;
+}
+
+/* Williamsburg Bridge animation */
+.bridge-container {
+  position: absolute;
+  bottom: 0;
+  left: -10%;
+  width: 120%;
+  height: 280px;
+  z-index: 5;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.bridge-svg {
+  width: 100%;
+  height: 100%;
+  opacity: 0.12;
+  filter: drop-shadow(0 2px 8px rgba(44, 82, 130, 0.3));
+}
+
+.bridge-svg .bridge-cable {
+  stroke: #2C5282;
+  stroke-width: 2;
+  fill: none;
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+  animation: drawCable 3s ease-out forwards;
+}
+
+.bridge-svg .bridge-cable-2 {
+  animation-delay: 0.3s;
+}
+
+.bridge-svg .bridge-cable-3 {
+  animation-delay: 0.6s;
+}
+
+.bridge-svg .bridge-structure {
+  fill: #2C5282;
+  opacity: 0;
+  animation: fadeStructure 1.5s ease-out 0.5s forwards;
+}
+
+.bridge-svg .bridge-deck {
+  fill: #1A365D;
+  opacity: 0;
+  animation: fadeStructure 1s ease-out 0.2s forwards;
+}
+
+.bridge-svg .bridge-suspender {
+  stroke: #2C5282;
+  stroke-width: 1.5;
+  fill: none;
+  opacity: 0;
+  animation: fadeStructure 0.5s ease-out forwards;
+}
+
+.bridge-svg .bridge-suspender:nth-child(n) {
+  animation-delay: calc(0.8s + var(--i, 0) * 0.08s);
+}
+
+@keyframes drawCable {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fadeStructure {
+  to {
+    opacity: 1;
+  }
+}
+
+.bridge-parallax {
+  transition: transform 0.1s linear;
+  will-change: transform;
+}
