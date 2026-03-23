@@ -40,7 +40,7 @@ export const ranges: ProductRange[] = [
     tagline:
       "Cold-smoked Atlantic & Pacific selections, crafted in Brooklyn since 1892.",
     code: "SMOKE_DEPT",
-    image: "/products/salmon/sketch_180700.png",
+    image: "/products/salmon/smoked_fish_splash.png",
     products: [
       {
         slug: "smoked-nova-salmon",
@@ -260,7 +260,7 @@ export const ranges: ProductRange[] = [
     tagline:
       "Premium jerky and beef sticks — hand-trimmed, bold-flavored, and Brooklyn-made.",
     code: "CURED_GOODS",
-    image: "/products/jerky/sketch_180771.png",
+    image: "/products/jerky/dried_meats_splash.png",
     products: [
       {
         slug: "jerky-smoky-bbq",
@@ -438,7 +438,7 @@ export const ranges: ProductRange[] = [
     tagline:
       "Hand tossed, pizzeria style — made in New York.",
     code: "COAL_FIRED",
-    image: "/products/pizza/sketch_180752-Large.png",
+    image: "/products/pizza/pizza_splash.png",
     products: [
       {
         slug: "pizza-classic-8-slices",
@@ -532,7 +532,7 @@ export const ranges: ProductRange[] = [
     tagline:
       "Crunchy dill pickles and gherkins — brined the old-fashioned Brooklyn way.",
     code: "PROVISIONS",
-    image: "/products/pickles/sketch_180767.png",
+    image: "/products/pickles/pickles_splash.png",
     products: [
       {
         slug: "dill-pickles",
@@ -644,7 +644,7 @@ export const ranges: ProductRange[] = [
     tagline:
       "Brooklyn-made salsa — bold heat and fresh ingredients.",
     code: "PROVISIONS",
-    image: "/products/salsa/image.png",
+    image: "/products/salsa/salsa_splash.png",
     products: [
       {
         slug: "salsa-hot",

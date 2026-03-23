@@ -21,7 +21,7 @@ export default function Quote() {
       <motion.div className="absolute inset-0 opacity-20" style={{ y: bgY }}>
         <div
           className="w-full h-[130%] bg-center bg-cover"
-          style={{ backgroundImage: "url('/deli_sign_background.png')" }}
+          style={{ backgroundImage: "url('/heritage_deli.png')" }}
         />
       </motion.div>
 
