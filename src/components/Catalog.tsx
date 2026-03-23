@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { ranges } from "@/data/products";
+import { FadeIn, StaggerContainer, motion, staggerItem, LineDraw } from "./motion";
 
 export default function Catalog() {
   return (
@@ -9,38 +12,48 @@ export default function Catalog() {
       className="py-16 md:py-32 px-4 md:px-8 bg-blueprint-bg border-y-2 border-steel-blue/20"
     >
       <div>
-        <div className="flex flex-col lg:flex-row justify-between items-baseline mb-10 md:mb-20 border-b-2 border-steel-blue pb-8">
-          <div className="flex items-center gap-6">
-            <h2 className="font-headline text-3xl md:text-5xl text-steel-blue italic font-bold">
-              Our Products
-            </h2>
-            <span className="bg-brick-red text-white font-mono text-[10px] px-3 py-1 uppercase tracking-tighter">
-              Est. 1892
-            </span>
+        <FadeIn>
+          <div className="flex flex-col lg:flex-row justify-between items-baseline mb-10 md:mb-20 border-b-2 border-steel-blue pb-8">
+            <div className="flex items-center gap-6">
+              <h2 className="font-headline text-3xl md:text-5xl text-steel-blue italic font-bold">
+                Our Products
+              </h2>
+              <motion.span
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="bg-brick-red text-white font-mono text-[10px] px-3 py-1 uppercase tracking-tighter"
+              >
+                Est. 1892
+              </motion.span>
+            </div>
+            <p className="font-mono text-xs uppercase tracking-widest text-industrial-gray mt-4 md:mt-0">
+              Premium Provisions // Since 1892
+            </p>
           </div>
-          <p className="font-mono text-xs uppercase tracking-widest text-industrial-gray mt-4 md:mt-0">
-            Premium Provisions // Since 1892
-          </p>
-        </div>
+        </FadeIn>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6">
-            {ranges.map((range) => {
-              const hasProducts = range.products.length > 0;
-              const href = hasProducts
-                ? `/products/range/${range.slug}`
-                : "#";
+        <StaggerContainer staggerDelay={0.08} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6">
+          {ranges.map((range) => {
+            const hasProducts = range.products.length > 0;
+            const href = hasProducts
+              ? `/products/range/${range.slug}`
+              : "#";
 
-              return (
+            return (
+              <motion.div key={range.slug} variants={staggerItem}>
                 <Link
-                  key={range.slug}
                   href={href}
                   className={`group border-2 border-steel-blue/10 bg-white overflow-hidden flex flex-col justify-end h-[320px] md:h-[380px] xl:h-[420px] hover:border-steel-blue transition-all duration-300 relative ${
                     !hasProducts ? "pointer-events-none opacity-60" : ""
                   }`}
                 >
-                  <div className="absolute top-0 right-0 w-10 h-10 border-t-2 border-r-2 border-brick-red opacity-0 group-hover:opacity-100 transition-opacity z-20" />
+                  <motion.div
+                    className="absolute top-0 right-0 w-10 h-10 border-t-2 border-r-2 border-brick-red opacity-0 group-hover:opacity-100 transition-opacity z-20"
+                    whileHover={{ scale: 1.2 }}
+                  />
 
-                  {/* Range Image Background */}
                   <div className="absolute inset-0 z-0 skeleton">
                     {range.image ? (
                       <Image
@@ -57,8 +70,7 @@ export default function Catalog() {
                         </span>
                       </div>
                     )}
-                    {/* Gradient Overlay for Text Readability */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
                   </div>
 
                   <div className="relative z-10 p-5 flex flex-col h-full justify-end text-white">
@@ -90,9 +102,10 @@ export default function Catalog() {
                     </div>
                   </div>
                 </Link>
-              );
-            })}
-        </div>
+              </motion.div>
+            );
+          })}
+        </StaggerContainer>
       </div>
     </section>
   );
