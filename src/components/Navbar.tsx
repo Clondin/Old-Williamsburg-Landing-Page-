@@ -45,12 +45,6 @@ export default function Navbar() {
           >
             The Standard
           </Link>
-          <Link
-            className="uppercase tracking-widest text-[11px] font-mono text-industrial-gray hover:text-steel-blue transition-colors font-semibold"
-            href="#distributor"
-          >
-            Find Us
-          </Link>
         </div>
         <div className="flex items-center md:hidden">
           <button
@@ -88,13 +82,6 @@ export default function Navbar() {
               onClick={handleLinkClick}
             >
               The Standard
-            </Link>
-            <Link
-              className="py-3 uppercase tracking-widest text-[11px] font-mono text-industrial-gray hover:text-steel-blue transition-colors font-semibold"
-              href="#distributor"
-              onClick={handleLinkClick}
-            >
-              Find Us
             </Link>
           </div>
         </div>

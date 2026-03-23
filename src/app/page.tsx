@@ -3,7 +3,7 @@ import Hero from "@/components/Hero";
 import Story from "@/components/Story";
 import Catalog from "@/components/Catalog";
 import Quote from "@/components/Quote";
-import Distributor from "@/components/Distributor";
+
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 
@@ -16,7 +16,7 @@ export default function Home() {
       <Story />
       <Catalog />
       <Quote />
-      <Distributor />
+
       <Footer />
       <ScrollToTop />
     </>

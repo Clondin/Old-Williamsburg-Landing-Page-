@@ -171,14 +171,6 @@ export default function ProductDetail({ product }: { product: Product }) {
         </div>
 
         <div className="mt-10 pt-6 border-t border-steel-blue/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <button
-            onClick={() => {
-              window.location.href = "/#distributor";
-            }}
-            className="bg-steel-blue text-white font-mono text-xs uppercase tracking-widest px-8 py-4 hover:bg-brick-red transition-colors cursor-pointer"
-          >
-            Find a Retailer
-          </button>
           <span className="font-mono text-[10px] text-industrial-gray/40 uppercase">
             REF: {currentSku}
           </span>
