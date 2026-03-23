@@ -38,14 +38,14 @@ export default function ProductDetail({ product }: { product: Product }) {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2">
       {/* Image Gallery */}
-      <div className="p-8 lg:p-12 flex flex-col">
-        <div className="relative aspect-[3/4] skeleton border border-steel-blue/10 overflow-hidden">
+      <div className="p-6 lg:p-10 flex flex-col items-center">
+        <div className="relative aspect-square w-full max-h-[480px] skeleton border border-steel-blue/10 overflow-hidden">
           <Image
             src={allImages[activeImage]}
             alt={product.name}
             fill
-            className="object-contain p-4"
-            sizes="(max-width: 1024px) 100vw, 50vw"
+            className="object-contain p-6"
+            sizes="(max-width: 1024px) 90vw, 440px"
             priority
           />
         </div>

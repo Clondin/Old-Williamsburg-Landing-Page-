@@ -29,14 +29,14 @@ export default function ProductGallery({
   }, [handleKeyDown]);
 
   return (
-    <div className="p-8 lg:p-12 flex flex-col" role="group" aria-label="Product image gallery">
-      <div className="relative aspect-[3/4] bg-[#f5f5f5] border border-steel-blue/10 overflow-hidden">
+    <div className="p-6 lg:p-10 flex flex-col items-center" role="group" aria-label="Product image gallery">
+      <div className="relative aspect-square w-full max-h-[480px] bg-[#f5f5f5] border border-steel-blue/10 overflow-hidden">
         <Image
           src={images[activeImage]}
           alt={name}
           fill
-          className="object-contain p-4"
-          sizes="(max-width: 1024px) 100vw, 50vw"
+          className="object-contain p-6"
+          sizes="(max-width: 1024px) 90vw, 440px"
           priority
         />
       </div>
