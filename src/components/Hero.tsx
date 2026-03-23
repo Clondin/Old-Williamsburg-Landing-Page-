@@ -67,7 +67,6 @@ export default function Hero() {
               onClick={() => document.getElementById("catalog")?.scrollIntoView({ behavior: "smooth" })}
               className="bg-steel-blue text-white px-6 sm:px-12 py-4 sm:py-5 font-mono uppercase tracking-widest font-bold text-sm flex items-center justify-center hover:bg-dark-steel transition-all cursor-pointer">
               Shop Our Products
-              <span className="material-symbols-outlined ml-3">settings</span>
             </button>
           </div>
         </div>

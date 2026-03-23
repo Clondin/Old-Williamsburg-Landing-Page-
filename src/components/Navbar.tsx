@@ -21,7 +21,9 @@ export default function Navbar() {
       </a>
       <div className="flex justify-between items-center w-full px-6 py-4">
         <div className="flex items-center space-x-3">
-          <Image src="/logo.svg" alt="Old Williamsburg" width={160} height={40} className="h-10 w-auto" />
+          <Link href="/">
+            <Image src="/logo.svg" alt="Old Williamsburg" width={160} height={40} className="h-10 w-auto" />
+          </Link>
           <span className="hidden md:block text-[10px] font-mono text-brick-red tracking-widest uppercase border border-brick-red px-2 py-0.5">
             Est. 1892
           </span>
@@ -48,14 +50,28 @@ export default function Navbar() {
         </div>
         <div className="flex items-center md:hidden">
           <button
-            className="bg-steel-blue text-white p-3 min-w-[44px] min-h-[44px] flex items-center justify-center"
+            className="group bg-steel-blue text-white p-3 min-w-[44px] min-h-[44px] flex items-center justify-center hover:bg-steel-blue/90 transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-expanded={mobileMenuOpen}
             aria-label="Toggle navigation menu"
           >
-            <span className="material-symbols-outlined text-sm">
-              {mobileMenuOpen ? "close" : "menu"}
-            </span>
+            <div className="relative w-5 h-4 flex flex-col justify-between">
+              <span
+                className={`block h-0.5 w-full bg-white rounded-sm transition-all duration-300 origin-center ${
+                  mobileMenuOpen ? "translate-y-[7px] rotate-45" : ""
+                }`}
+              />
+              <span
+                className={`block h-0.5 w-full bg-white rounded-sm transition-all duration-300 ${
+                  mobileMenuOpen ? "opacity-0 scale-x-0" : ""
+                }`}
+              />
+              <span
+                className={`block h-0.5 w-full bg-white rounded-sm transition-all duration-300 origin-center ${
+                  mobileMenuOpen ? "-translate-y-[7px] -rotate-45" : ""
+                }`}
+              />
+            </div>
           </button>
         </div>
       </div>

@@ -13,13 +13,15 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-8 md:gap-12 border-b border-white/10 pb-16">
           <div className="md:col-span-2">
             <div className="mb-6">
-              <Image
-                src="/logo.svg"
-                alt="Old Williamsburg"
-                width={192}
-                height={48}
-                className="h-12 w-auto brightness-0 invert"
-              />
+              <Link href="/">
+                <Image
+                  src="/logo.svg"
+                  alt="Old Williamsburg"
+                  width={192}
+                  height={48}
+                  className="h-12 w-auto brightness-0 invert"
+                />
+              </Link>
             </div>
             <p className="text-white/60 max-w-sm font-light text-sm leading-relaxed">
               Maintaining the structural integrity of New York culinary
@@ -52,27 +54,22 @@ export default function Footer() {
             <h4 className="font-mono text-[10px] uppercase tracking-widest mb-6 text-brick-red font-bold">
               Get in Touch
             </h4>
-            <ul className="space-y-3 text-xs uppercase tracking-wider font-semibold">
+            <ul className="space-y-3 text-xs tracking-wider font-semibold">
               <li>
-                <Link className="hover:text-brick-red transition-colors py-2 inline-block" href="#">
-                  Instagram
-                </Link>
-              </li>
-              <li>
-                <Link className="hover:text-brick-red transition-colors py-2 inline-block" href="#">
+                <a className="hover:text-brick-red transition-colors py-2 inline-block uppercase" href="mailto:customercare@kayco.com">
                   Customer Support
-                </Link>
+                </a>
               </li>
               <li>
-                <Link className="hover:text-brick-red transition-colors py-2 inline-block" href="#">
-                  Legal
-                </Link>
+                <span className="py-2 inline-block text-white/60 normal-case">
+                  customercare@kayco.com
+                </span>
               </li>
             </ul>
           </div>
         </div>
         <div className="pt-10 flex flex-col md:flex-row justify-between items-center text-[10px] font-mono text-white/40 uppercase tracking-[0.2em]">
-          <p>&copy; 2025 OLD WILLIAMSBURG PROVISIONS. ALL RIGHTS RESERVED.</p>
+          <p>&copy; 2026 OLD WILLIAMSBURG PROVISIONS. ALL RIGHTS RESERVED.</p>
           <p>BK-USA-718</p>
         </div>
       </div>
