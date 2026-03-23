@@ -6,9 +6,10 @@ import type { Product } from "@/data/products";
 
 export default function ProductDetail({ product }: { product: Product }) {
   const [variantIndex, setVariantIndex] = useState(0);
+  const [imgError, setImgError] = useState(false);
   const hasVariants = product.variants && product.variants.length > 1;
 
-  const active = hasVariants ? product.variants![variantIndex] : null;
+  const active = hasVariants && product.variants ? product.variants[variantIndex] : null;
   const currentImage = active?.image ?? product.image;
   const currentAngles = active?.angles ?? product.angles;
   const currentWeight = active?.weight ?? product.weight;
@@ -21,6 +22,7 @@ export default function ProductDetail({ product }: { product: Product }) {
   const handleVariantChange = (i: number) => {
     setVariantIndex(i);
     setActiveImage(0);
+    setImgError(false);
   };
 
   useEffect(() => {
@@ -40,20 +42,30 @@ export default function ProductDetail({ product }: { product: Product }) {
       {/* Image Gallery */}
       <div className="p-6 lg:p-10 flex flex-col items-center">
         <div className="relative aspect-square w-full max-h-[480px] skeleton border border-steel-blue/10 overflow-hidden">
-          <Image
-            src={allImages[activeImage]}
-            alt={product.name}
-            fill
-            className="object-contain p-6"
-            sizes="(max-width: 1024px) 90vw, 440px"
-            priority
-          />
+          {imgError ? (
+            <div className="flex items-center justify-center h-full">
+              <span className="font-mono text-xs uppercase tracking-widest text-industrial-gray/40">
+                Image unavailable
+              </span>
+            </div>
+          ) : (
+            <Image
+              src={allImages[activeImage]}
+              alt={product.name}
+              fill
+              className="object-contain p-6"
+              sizes="(max-width: 1024px) 90vw, 440px"
+              priority
+              onError={() => setImgError(true)}
+            />
+          )}
         </div>
         <div className="flex flex-wrap gap-3 mt-4">
           {allImages.map((img, i) => (
             <button
               key={`${variantIndex}-${img}`}
-              onClick={() => setActiveImage(i)}
+              onClick={() => { setActiveImage(i); setImgError(false); }}
+              aria-label={`View ${product.name} angle ${i + 1}`}
               className={`relative w-16 h-16 sm:w-20 sm:h-20 border-2 overflow-hidden transition-all cursor-pointer skeleton ${
                 activeImage === i
                   ? "border-brick-red"
@@ -92,7 +104,7 @@ export default function ProductDetail({ product }: { product: Product }) {
                 Select Size
               </h2>
               <div className="flex flex-wrap gap-3" role="group" aria-label="Size options">
-                {product.variants!.map((v, i) => (
+                {product.variants?.map((v, i) => (
                   <button
                     key={v.sku}
                     onClick={() => handleVariantChange(i)}

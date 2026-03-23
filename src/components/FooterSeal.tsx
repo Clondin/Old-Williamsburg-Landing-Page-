@@ -1,6 +1,6 @@
 export default function FooterSeal() {
   return (
-    <svg viewBox="0 0 400 400" className="w-full h-full fill-current text-current">
+    <svg viewBox="0 0 400 400" className="w-full h-full fill-current text-current" role="img" aria-label="Old Williamsburg quality seal">
       <defs>
         <path
           id="circlePath"

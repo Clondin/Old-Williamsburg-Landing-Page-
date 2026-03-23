@@ -22,9 +22,28 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Old Williamsburg Provisions",
+  title: {
+    default: "Old Williamsburg Provisions",
+    template: "%s — Old Williamsburg",
+  },
   description:
     "Premium smoked fish, cured meats, and deli staples — precision-crafted using original 19th-century methods.",
+  metadataBase: new URL("https://oldwilliamsburg.com"),
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    siteName: "Old Williamsburg Provisions",
+    title: "Old Williamsburg Provisions",
+    description:
+      "Premium smoked fish, cured meats, and deli staples — precision-crafted using original 19th-century methods.",
+    images: [{ url: "/logo.svg", width: 256, height: 100, alt: "Old Williamsburg" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Old Williamsburg Provisions",
+    description:
+      "Premium smoked fish, cured meats, and deli staples — precision-crafted using original 19th-century methods.",
+  },
 };
 
 export default function RootLayout({

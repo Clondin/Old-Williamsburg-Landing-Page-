@@ -1,10 +1,29 @@
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import { getRangeBySlug, getAllRangeSlugs } from "@/data/products";
 import Image from "next/image";
 import Link from "next/link";
 
 export function generateStaticParams() {
   return getAllRangeSlugs().map((slug) => ({ slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const range = getRangeBySlug(slug);
+  if (!range) return { title: "Range Not Found" };
+  return {
+    title: range.name,
+    description: range.tagline,
+    openGraph: {
+      title: `${range.name} — Old Williamsburg`,
+      description: range.tagline,
+    },
+  };
 }
 
 export default async function RangePage({

@@ -5,6 +5,8 @@ export default function BridgeSvg() {
       viewBox="0 0 1400 280"
       preserveAspectRatio="none"
       xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      aria-label="Decorative Williamsburg Bridge illustration"
     >
       {/* Bridge deck */}
       <rect className="bridge-deck" x="0" y="210" width="1400" height="18" rx="2" />
