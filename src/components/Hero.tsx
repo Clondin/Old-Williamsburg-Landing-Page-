@@ -25,7 +25,7 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-[600px] md:min-h-[921px] flex items-center pt-24 overflow-hidden bg-concrete">
-      <div className="absolute right-0 top-0 w-full h-full z-0 opacity-40 mix-blend-multiply">
+      <div className="absolute inset-0 z-0 opacity-40 mix-blend-multiply">
         <Image
           className="w-full h-full object-cover brightness-125 contrast-75 hero-mask"
           alt="Williamsburg Bridge illustration"
