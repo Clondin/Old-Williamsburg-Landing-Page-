@@ -40,8 +40,8 @@ export default function Hero() {
         <BridgeSvg />
       </div>
 
-      <div className="relative z-10 w-full px-4 md:px-8 max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-        <div className="bg-white/20 backdrop-blur-[2px] p-6 md:p-12 border-l-4 md:border-l-[12px] border-steel-blue shadow-2xl">
+      <div className="relative z-10 w-full px-4 md:px-8">
+        <div className="bg-white/20 backdrop-blur-[2px] p-6 md:p-12 border-l-4 md:border-l-[12px] border-steel-blue shadow-2xl max-w-3xl">
           <div className="mb-8 flex items-center space-x-4">
             <Image
               className="w-24 opacity-80"
