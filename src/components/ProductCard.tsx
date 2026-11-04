@@ -8,7 +8,7 @@ export function ComingSoonArt({ label = "Photo coming soon", size = "md" }: { la
     <div className="absolute inset-0 grid place-items-center">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src="/logo.svg" alt="" aria-hidden="true" className={`${size === "lg" ? "w-3/5" : "w-2/3"} opacity-[0.16]`} />
-      <span className="absolute bottom-[14%] eyebrow rounded-full bg-paper/80 px-3 py-1.5 text-brass !text-[0.6rem] ring-1 ring-brass/25">{label}</span>
+      <span className="absolute bottom-[10%] text-[0.75rem] font-medium text-ink/50">{label}</span>
     </div>
   );
 }
@@ -20,7 +20,7 @@ export default function ProductCard({ product, priority = false, showRange = tru
   const sizes = product.variants?.length && product.variants.length > 1 ? `${product.variants.length} sizes` : product.weight.replace(/\s*\(.*\)/, "").toLowerCase();
   return (
     <Link href={`/products/${product.slug}`} className="group block focus-visible:outline-none" aria-label={`${product.name}, ${sizes}`}>
-      <div className="stage relative aspect-[4/5] overflow-hidden rounded-[1.6rem] ring-1 ring-ink/[0.06] transition-[transform,box-shadow] duration-500 group-hover:-translate-y-1 group-hover:shadow-[0_24px_40px_-24px_rgba(16,34,63,.45)] group-focus-visible:ring-2 group-focus-visible:ring-brick">
+      <div className="stage relative aspect-[4/5] overflow-hidden rounded-md transition-shadow duration-500 group-hover:shadow-[0_18px_30px_-22px_rgba(16,34,63,.5)] group-focus-visible:ring-2 group-focus-visible:ring-brick">
         {product.comingSoon || !product.image ? (
           <ComingSoonArt />
         ) : (
@@ -41,11 +41,16 @@ export default function ProductCard({ product, priority = false, showRange = tru
             )}
           </>
         )}
-        {product.discontinued && <span className="absolute left-4 top-4 eyebrow rounded-full bg-ink px-2.5 py-1 text-cream !text-[0.58rem]">Discontinued</span>}
+        {product.discontinued && <span className="absolute left-3 top-3 rounded-sm bg-ink px-2 py-1 text-[0.7rem] font-medium text-cream">Discontinued</span>}
       </div>
-      <div className="px-1 pt-4">
-        {showRange && range && <p className="eyebrow text-brass !text-[0.62rem]">{range.name}</p>}
-        <h3 className="mt-1 font-headline text-[1.28rem] leading-tight text-ink group-hover:text-brick transition-colors">{product.name}</h3>
+      <div className="pt-3">
+        {(showRange || product.isNew) && (
+          <p className="flex items-center gap-2 text-[0.78rem] text-muted">
+            {showRange && range && <span>{range.name}</span>}
+            {product.isNew && <span className="font-semibold text-brick">New</span>}
+          </p>
+        )}
+        <h3 className="mt-0.5 font-headline text-[1.2rem] leading-[1.15] text-ink transition-colors group-hover:text-brick md:text-[1.3rem]">{product.name}</h3>
         <p className="mt-1 text-sm text-muted">{sizes}</p>
       </div>
     </Link>

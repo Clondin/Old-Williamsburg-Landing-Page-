@@ -68,8 +68,8 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           },
         ]}
       />
-      <div className="mx-auto max-w-[1400px] px-5 pt-24 pb-20 md:px-10 md:pt-32">
-        <nav aria-label="Breadcrumb" className="mb-8 flex flex-wrap items-center gap-2 text-sm text-muted">
+      <div className="mx-auto max-w-[1400px] px-5 pt-20 pb-16 md:px-10 md:pt-32 md:pb-24">
+        <nav aria-label="Breadcrumb" className="mb-4 flex flex-wrap items-center gap-2 text-sm text-muted md:mb-8">
           <Link href="/" className="ulink hover:text-ink">Home</Link><span aria-hidden="true">/</span>
           <Link href="/products" className="ulink hover:text-ink">Products</Link>
           {range && (<><span aria-hidden="true">/</span><Link href={`/products/range/${range.slug}`} className="ulink hover:text-ink">{range.name}</Link></>)}
@@ -77,10 +77,10 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         <ProductView product={product} rangeName={range?.name} />
       </div>
       {related.length > 0 && range && (
-        <section className="border-t border-ink/10 bg-paper-2/50" aria-labelledby="more-h">
+        <section className="border-t rule bg-paper-2/50" aria-labelledby="more-h">
           <div className="mx-auto max-w-[1400px] px-5 py-16 md:px-10 md:py-24">
             <div className="mb-10 flex items-end justify-between gap-6">
-              <h2 id="more-h" className="display text-4xl md:text-5xl">More <em className="text-brick">{range.name.toLowerCase()}</em></h2>
+              <h2 id="more-h" className="display text-[2.2rem] md:text-5xl">More from <em className="text-brick">{range.name}</em></h2>
               <Link href={`/products/range/${range.slug}`} className="ulink shrink-0 font-semibold">See all</Link>
             </div>
             <div className="grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 lg:grid-cols-4">

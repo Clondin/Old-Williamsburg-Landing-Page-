@@ -22,18 +22,18 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: { default: "Old Williamsburg | Born in Brooklyn", template: "%s | Old Williamsburg" },
+  title: { default: "Old Williamsburg | Smoked fish, jerky, pizza and more", template: "%s | Old Williamsburg" },
   description: SITE_DESCRIPTION,
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "en_US",
     siteName: SITE_NAME,
-    title: "Old Williamsburg | Born in Brooklyn",
+    title: "Old Williamsburg | Smoked fish, jerky, pizza and more",
     description: SITE_DESCRIPTION,
     images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Old Williamsburg products" }],
   },
-  twitter: { card: "summary_large_image", title: "Old Williamsburg | Born in Brooklyn", description: SITE_DESCRIPTION, images: ["/og.jpg"] },
+  twitter: { card: "summary_large_image", title: "Old Williamsburg | Smoked fish, jerky, pizza and more", description: SITE_DESCRIPTION, images: ["/og.jpg"] },
   robots: { index: true, follow: true },
 };
 

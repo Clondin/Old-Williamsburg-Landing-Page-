@@ -1,6 +1,6 @@
 // Generated Nov 2026 from the original site data + the Kayco item master (read-only).
 // Product facts (names, sizes, item #, UPC, kosher certification, storage) come from the item master;
-// descriptions/features on the original 29 SKUs are the original site's copy. No prices or ratings.
+// descriptions/features: the original site's copy, tightened Nov 2026 (no new claims). No prices or ratings.
 
 export interface ProductVariant {
   label: string;
@@ -51,7 +51,7 @@ export const ranges: ProductRange[] = [
   {
     "slug": "smoked-fish",
     "name": "Smoked Fish",
-    "tagline": "Cold-smoked Atlantic & Pacific selections, crafted in Brooklyn since 1892.",
+    "tagline": "Nova, gravlax, hot-smoked fillets and smoked ahi. In Brooklyn since 1892.",
     "code": "SMOKE_DEPT",
     "image": "/img/range-smoked-fish.webp",
     "products": [
@@ -61,7 +61,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "smoked-fish",
         "name": "Smoked Nova Salmon",
         "shortName": "Nova Salmon",
-        "description": "Classic cold-smoked Nova salmon, hand-sliced and ready to serve. The cornerstone of every Brooklyn brunch spread.",
+        "description": "Cold-smoked Nova salmon, hand-sliced and ready to serve. Made for the bagel.",
         "weight": "4 OZ (113g)",
         "sku": "180714",
         "upc": "073490133220",
@@ -75,10 +75,10 @@ export const ranges: ProductRange[] = [
         ],
         "kosher": true,
         "features": [
-          "Hand-Sliced Nova Style",
-          "Cold-Smoked Over Fruitwood",
-          "No Artificial Preservatives",
-          "Ready to Serve"
+          "Hand-sliced, Nova style",
+          "Cold-smoked over fruitwood",
+          "No artificial preservatives",
+          "Ready to serve"
         ],
         "variants": [
           {
@@ -133,7 +133,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "smoked-fish",
         "name": "Smoked Nova Salmon Tidbits",
         "shortName": "Nova Tidbits 8oz",
-        "description": "Premium nova trimmings — perfect for salads, omelets, and pasta. All the flavor at a great value.",
+        "description": "Nova trimmings for salads, omelets and pasta. Same smoked salmon, better value.",
         "weight": "8 OZ (227g)",
         "sku": "180716",
         "upc": "073490133244",
@@ -147,10 +147,9 @@ export const ranges: ProductRange[] = [
         ],
         "kosher": true,
         "features": [
-          "Versatile Tidbit Cut",
-          "Great for Cooking & Salads",
-          "Cold-Smoked Premium Salmon",
-          "No Artificial Preservatives"
+          "Tidbit cut",
+          "Cold-smoked salmon",
+          "No artificial preservatives"
         ],
         "kosherCert": "OU · WS",
         "storage": "Refrigerated"
@@ -161,7 +160,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "smoked-fish",
         "name": "Pastrami Style Smoked Salmon",
         "shortName": "Pastrami Style Salmon 4oz",
-        "description": "A Brooklyn original — salmon cured with our pastrami spice blend. The perfect union of deli tradition and smoked fish craft.",
+        "description": "Salmon cured with our pastrami spice blend, then cold-smoked.",
         "weight": "4 OZ (113g)",
         "sku": "180718",
         "upc": "073490133633",
@@ -175,10 +174,9 @@ export const ranges: ProductRange[] = [
         ],
         "kosher": true,
         "features": [
-          "Pastrami Spice Crusted",
-          "Brooklyn Original Recipe",
-          "Cold-Smoked Premium Salmon",
-          "No Artificial Preservatives"
+          "Pastrami spice crust",
+          "Cold-smoked salmon",
+          "No artificial preservatives"
         ],
         "kosherCert": "OU · WS",
         "storage": "Refrigerated"
@@ -189,7 +187,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "smoked-fish",
         "name": "Everything Bagel Smoked Salmon",
         "shortName": "Everything Bagel Salmon 4oz",
-        "description": "Cold-smoked salmon crusted with our signature everything bagel seasoning. The bagel and lox experience in every bite.",
+        "description": "Cold-smoked salmon crusted with everything bagel seasoning. Presliced.",
         "weight": "4 OZ (113g)",
         "sku": "180709",
         "upc": "073490134302",
@@ -202,10 +200,9 @@ export const ranges: ProductRange[] = [
         ],
         "kosher": true,
         "features": [
-          "Everything Bagel Seasoning",
-          "Cold-Smoked Premium Salmon",
-          "Presliced & Ready to Eat",
-          "No Artificial Preservatives"
+          "Everything bagel seasoning",
+          "Presliced, ready to eat",
+          "No artificial preservatives"
         ],
         "kosherCert": "CRC · OU",
         "storage": "Refrigerated"
@@ -216,7 +213,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "smoked-fish",
         "name": "Original Smoked Salmon",
         "shortName": "Original Smoked Salmon",
-        "description": "Our classic hot-smoked salmon fillet. Rich, flaky, and full-flavored — the way it's been done since 1892.",
+        "description": "A whole hot-smoked salmon fillet. Rich and flaky. Our original 1892 recipe.",
         "weight": "8 OZ (227g)",
         "sku": "180720",
         "upc": "",
@@ -227,10 +224,9 @@ export const ranges: ProductRange[] = [
         ],
         "kosher": true,
         "features": [
-          "Traditional Hot-Smoked",
-          "Whole Fillet",
-          "Rich & Flaky Texture",
-          "Original 1892 Recipe"
+          "Hot-smoked",
+          "Whole fillet",
+          "Original 1892 recipe"
         ],
         "kosherCert": "OU · WS",
         "storage": "Refrigerated"
@@ -241,7 +237,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "smoked-fish",
         "name": "Honey Maple Smoked Salmon",
         "shortName": "Honey Maple Salmon",
-        "description": "Hot-smoked salmon glazed with pure honey and real maple syrup. A sweet and savory Brooklyn delicacy.",
+        "description": "Hot-smoked salmon fillet glazed with honey and maple syrup.",
         "weight": "8 OZ (227g)",
         "sku": "180721",
         "upc": "",
@@ -252,10 +248,9 @@ export const ranges: ProductRange[] = [
         ],
         "kosher": true,
         "features": [
-          "Pure Honey & Maple Glaze",
-          "Hot-Smoked Fillet",
-          "Sweet & Savory Profile",
-          "No Artificial Preservatives"
+          "Honey and maple glaze",
+          "Hot-smoked fillet",
+          "No artificial preservatives"
         ],
         "kosherCert": "OU · WS",
         "storage": "Refrigerated"
@@ -266,7 +261,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "smoked-fish",
         "name": "BBQ Smoked Salmon",
         "shortName": "BBQ Smoked Salmon",
-        "description": "Hot-smoked salmon with our signature Brooklyn BBQ rub. Bold, smoky, and unlike anything else in the deli case.",
+        "description": "Hot-smoked salmon fillet with our BBQ spice rub.",
         "weight": "8 OZ (227g)",
         "sku": "180722",
         "upc": "",
@@ -277,10 +272,9 @@ export const ranges: ProductRange[] = [
         ],
         "kosher": true,
         "features": [
-          "Brooklyn BBQ Spice Rub",
-          "Hot-Smoked Fillet",
-          "Bold Smoky Flavor",
-          "No Artificial Preservatives"
+          "BBQ spice rub",
+          "Hot-smoked fillet",
+          "No artificial preservatives"
         ],
         "kosherCert": "OU · WS",
         "storage": "Refrigerated"
@@ -291,7 +285,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "smoked-fish",
         "name": "Sesame Crusted Smoked Ahi Tuna",
         "shortName": "Smoked Ahi Tuna",
-        "description": "Premium ahi tuna, sesame crusted and cold-smoked to perfection. Presliced and ready to eat — no artificial preservatives.",
+        "description": "Ahi tuna, crusted in sesame and cold-smoked. Presliced and ready to eat.",
         "weight": "3 OZ (85g)",
         "sku": "180725",
         "upc": "073490134319",
@@ -305,10 +299,10 @@ export const ranges: ProductRange[] = [
         ],
         "kosher": true,
         "features": [
-          "Presliced & Ready to Eat",
-          "No Artificial Preservatives",
-          "Cold-Smoked Premium Ahi",
-          "Sesame Crusted Finish"
+          "Sesame crust",
+          "Cold-smoked ahi",
+          "Presliced, ready to eat",
+          "No artificial preservatives"
         ],
         "kosherCert": "CRC · OU",
         "storage": "Refrigerated"
@@ -319,7 +313,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "smoked-fish",
         "name": "Smoked Gravlax",
         "shortName": "Gravlax 4oz",
-        "description": "Old Williamsburg smoked gravlax in a 4 oz pack.",
+        "description": "Smoked gravlax, 4 oz. Find it in the refrigerated fish case.",
         "weight": "4 OZ",
         "sku": "180719",
         "upc": "073490133640",
@@ -336,7 +330,7 @@ export const ranges: ProductRange[] = [
   {
     "slug": "dried-meats",
     "name": "Dried Meats",
-    "tagline": "Premium jerky and beef sticks — hand-trimmed, bold-flavored, and Brooklyn-made.",
+    "tagline": "Beef jerky in six flavors, cut from hand-trimmed beef, plus jerky bites in three.",
     "code": "CURED_GOODS",
     "image": "/img/range-dried-meats.webp",
     "products": [
@@ -346,7 +340,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "dried-meats",
         "name": "Beef Jerky Smoky Barbeque",
         "shortName": "Smoky Barbeque 2oz",
-        "description": "Slow-smoked BBQ jerky made from hand-trimmed premium beef. Bold, smoky, and satisfying.",
+        "description": "Hand-trimmed beef jerky, slow-smoked with a BBQ glaze.",
         "weight": "2 OZ (57g)",
         "sku": "180771",
         "upc": "073490133893",
@@ -360,10 +354,10 @@ export const ranges: ProductRange[] = [
         ],
         "kosher": true,
         "features": [
-          "Smoky BBQ Flavor",
-          "Hand-Trimmed Beef",
-          "High Protein Snack",
-          "No Artificial Preservatives"
+          "Smoky BBQ",
+          "Hand-trimmed beef",
+          "High protein",
+          "No artificial preservatives"
         ],
         "kosherCert": "CRC · MEAT",
         "storage": "Pantry"
@@ -374,7 +368,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "dried-meats",
         "name": "Beef Jerky Pepper Crusted",
         "shortName": "Pepper Crusted 2oz",
-        "description": "Premium beef jerky crusted with cracked black pepper. A timeless classic with serious bite.",
+        "description": "Hand-trimmed beef jerky crusted with cracked black pepper.",
         "weight": "2 OZ (57g)",
         "sku": "180772",
         "upc": "073490133909",
@@ -388,10 +382,10 @@ export const ranges: ProductRange[] = [
         ],
         "kosher": true,
         "features": [
-          "Cracked Pepper Crust",
-          "Hand-Trimmed Beef",
-          "High Protein Snack",
-          "No Artificial Preservatives"
+          "Cracked black pepper",
+          "Hand-trimmed beef",
+          "High protein",
+          "No artificial preservatives"
         ],
         "kosherCert": "CRC · MEAT",
         "storage": "Pantry"
@@ -402,7 +396,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "dried-meats",
         "name": "Beef Jerky Sweet Chipotle",
         "shortName": "Sweet Chipotle 2oz",
-        "description": "Sweet meets smoky in our chipotle-glazed jerky. A perfect balance of heat and sweetness.",
+        "description": "Beef jerky with a sweet chipotle glaze. Some heat, some sweet.",
         "weight": "2 OZ (57g)",
         "sku": "180773",
         "upc": "073490133923",
@@ -416,10 +410,10 @@ export const ranges: ProductRange[] = [
         ],
         "kosher": true,
         "features": [
-          "Sweet Chipotle Glaze",
-          "Hand-Trimmed Beef",
-          "High Protein Snack",
-          "No Artificial Preservatives"
+          "Sweet chipotle glaze",
+          "Hand-trimmed beef",
+          "High protein",
+          "No artificial preservatives"
         ],
         "kosherCert": "CRC · MEAT",
         "storage": "Pantry"
@@ -430,7 +424,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "dried-meats",
         "name": "Beef Jerky Cherry Cola",
         "shortName": "Cherry Cola 2oz",
-        "description": "Our most inventive flavor — premium beef jerky with a sweet cherry cola glaze. Brooklyn creativity at its finest.",
+        "description": "Hand-trimmed beef jerky with a cherry cola glaze.",
         "weight": "2 OZ (57g)",
         "sku": "180774",
         "upc": "073490133886",
@@ -444,10 +438,10 @@ export const ranges: ProductRange[] = [
         ],
         "kosher": true,
         "features": [
-          "Cherry Cola Glaze",
-          "Hand-Trimmed Beef",
-          "High Protein Snack",
-          "No Artificial Preservatives"
+          "Cherry cola glaze",
+          "Hand-trimmed beef",
+          "High protein",
+          "No artificial preservatives"
         ],
         "kosherCert": "CRC · MEAT",
         "storage": "Pantry"
@@ -458,7 +452,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "dried-meats",
         "name": "Beef Jerky Teriyaki",
         "shortName": "Teriyaki 2oz",
-        "description": "Traditional teriyaki-glazed beef jerky. Sweet, savory, and impossibly tender.",
+        "description": "Hand-trimmed beef jerky with a teriyaki glaze. Sweet and savory.",
         "weight": "2 OZ (57g)",
         "sku": "180770",
         "upc": "073490133916",
@@ -472,10 +466,10 @@ export const ranges: ProductRange[] = [
         ],
         "kosher": true,
         "features": [
-          "Classic Teriyaki Glaze",
-          "Hand-Trimmed Beef",
-          "High Protein Snack",
-          "No Artificial Preservatives"
+          "Teriyaki glaze",
+          "Hand-trimmed beef",
+          "High protein",
+          "No artificial preservatives"
         ],
         "kosherCert": "CRC · MEAT",
         "storage": "Pantry"
@@ -486,7 +480,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "dried-meats",
         "name": "Craft Beef Sticks Italian",
         "shortName": "Italian Beef Sticks 3oz",
-        "description": "Classic Italian-seasoned beef sticks made with premium cuts. A bold, savory snack rooted in Brooklyn tradition.",
+        "description": "Beef sticks with Italian seasoning.",
         "weight": "3 OZ (85g)",
         "sku": "180785",
         "upc": "073490134067",
@@ -500,10 +494,9 @@ export const ranges: ProductRange[] = [
         ],
         "kosher": true,
         "features": [
-          "Italian Seasoned",
-          "Premium Beef",
-          "Ready to Eat Snack",
-          "No Artificial Preservatives"
+          "Italian seasoning",
+          "Ready to eat",
+          "No artificial preservatives"
         ],
         "kosherCert": "CRC · MEAT · OU",
         "storage": "Pantry",
@@ -515,7 +508,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "dried-meats",
         "name": "Craft Beef Sticks Kielbasa",
         "shortName": "Kielbasa Beef Sticks 3oz",
-        "description": "Kielbasa-style beef sticks with a smoky, garlicky kick. Old-world flavor in every bite.",
+        "description": "Kielbasa-style beef sticks, smoky with garlic.",
         "weight": "3 OZ (85g)",
         "sku": "180786",
         "upc": "073490134074",
@@ -529,10 +522,9 @@ export const ranges: ProductRange[] = [
         ],
         "kosher": true,
         "features": [
-          "Kielbasa Seasoned",
-          "Premium Beef",
-          "Ready to Eat Snack",
-          "No Artificial Preservatives"
+          "Kielbasa seasoning",
+          "Ready to eat",
+          "No artificial preservatives"
         ],
         "kosherCert": "CRC · MEAT · OU",
         "storage": "Pantry",
@@ -544,7 +536,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "dried-meats",
         "name": "Craft Beef Sticks Hot 'N Spicy",
         "shortName": "Hot 'N Spicy Beef Sticks 3oz",
-        "description": "Fiery beef sticks with our signature hot & spicy blend. For those who like it bold.",
+        "description": "Beef sticks with a hot and spicy blend.",
         "weight": "3 OZ (85g)",
         "sku": "180787",
         "upc": "073490134081",
@@ -558,10 +550,9 @@ export const ranges: ProductRange[] = [
         ],
         "kosher": true,
         "features": [
-          "Hot & Spicy Blend",
-          "Premium Beef",
-          "Ready to Eat Snack",
-          "No Artificial Preservatives"
+          "Hot and spicy",
+          "Ready to eat",
+          "No artificial preservatives"
         ],
         "kosherCert": "CRC · MEAT · OU",
         "storage": "Pantry",
@@ -573,7 +564,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "dried-meats",
         "name": "Beef Jerky Classic",
         "shortName": "Classic 2oz",
-        "description": "Old Williamsburg classic beef jerky in a 2 oz bag.",
+        "description": "Classic beef jerky in a 2 oz bag.",
         "weight": "2 OZ",
         "sku": "180740",
         "upc": "073490133817",
@@ -592,7 +583,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "dried-meats",
         "name": "Jerky Bites Original Smokehouse",
         "shortName": "Original Smokehouse 2oz",
-        "description": "Old Williamsburg jerky bites, Original Smokehouse flavor, 2 oz.",
+        "description": "Bite-size beef jerky, Original Smokehouse flavor. 2 oz bag.",
         "weight": "2 OZ",
         "sku": "180820",
         "upc": "073490134500",
@@ -611,7 +602,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "dried-meats",
         "name": "Jerky Bites NY Pastrami",
         "shortName": "NY Pastrami 2oz",
-        "description": "Old Williamsburg jerky bites, NY Pastrami flavor, 2 oz.",
+        "description": "Bite-size beef jerky, NY Pastrami flavor. 2 oz bag.",
         "weight": "2 OZ",
         "sku": "180821",
         "upc": "073490134517",
@@ -630,7 +621,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "dried-meats",
         "name": "Jerky Bites Korean BBQ",
         "shortName": "Korean BBQ 2oz",
-        "description": "Old Williamsburg jerky bites, Korean BBQ flavor, 2 oz.",
+        "description": "Bite-size beef jerky, Korean BBQ flavor. 2 oz bag.",
         "weight": "2 OZ",
         "sku": "180822",
         "upc": "073490134524",
@@ -648,7 +639,7 @@ export const ranges: ProductRange[] = [
   {
     "slug": "pizza",
     "name": "Pizza",
-    "tagline": "Hand tossed, pizzeria style — made in New York.",
+    "tagline": "Hand-tossed, pizzeria-style frozen pizza made in New York, plus pizza bagels and dough.",
     "code": "COAL_FIRED",
     "image": "/img/range-pizza.webp",
     "products": [
@@ -658,7 +649,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "pizza",
         "name": "Pizza Classic 8 Slices",
         "shortName": "Classic Pizza 8 Slices",
-        "description": "Our classic cheese pizza — hand tossed, pizzeria style. Made in New York with 60% fruit juice mozzarella.",
+        "description": "Classic cheese pizza, hand-tossed and pizzeria style. Eight slices. Made in New York.",
         "weight": "34 OZ (964g)",
         "sku": "180750",
         "upc": "073490133718",
@@ -672,9 +663,8 @@ export const ranges: ProductRange[] = [
         ],
         "kosher": true,
         "features": [
-          "Hand Tossed Crust",
-          "Pizzeria Style",
-          "8 Slices",
+          "Hand-tossed crust",
+          "8 slices",
           "Made in New York"
         ],
         "kosherCert": "CRC · CY · Y",
@@ -686,7 +676,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "pizza",
         "name": "Pizza White Whole Wheat",
         "shortName": "White Whole Wheat Pizza",
-        "description": "Hand tossed, pizzeria style pizza made with white whole wheat crust. Made in New York.",
+        "description": "Hand-tossed, pizzeria-style cheese pizza on a white whole wheat crust. Made in New York.",
         "weight": "34 OZ (964g)",
         "sku": "180751",
         "upc": "073490133725",
@@ -699,9 +689,8 @@ export const ranges: ProductRange[] = [
         ],
         "kosher": true,
         "features": [
-          "White Whole Wheat Crust",
-          "Hand Tossed",
-          "8 Slices",
+          "White whole wheat crust",
+          "8 slices",
           "Made in New York"
         ],
         "kosherCert": "CRC · CY · Y",
@@ -713,7 +702,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "pizza",
         "name": "Pizza Classic 4 Slices",
         "shortName": "Classic Pizza 4 Slices",
-        "description": "Our classic cheese pizza in a convenient 4-slice size. Hand tossed, pizzeria style. Made in New York.",
+        "description": "The classic cheese pizza in a four-slice size. Hand-tossed, pizzeria style. Made in New York.",
         "weight": "17 OZ (482g)",
         "sku": "180752",
         "upc": "073490133732",
@@ -727,9 +716,8 @@ export const ranges: ProductRange[] = [
         ],
         "kosher": true,
         "features": [
-          "Hand Tossed Crust",
-          "Pizzeria Style",
-          "4 Slices",
+          "Hand-tossed crust",
+          "4 slices",
           "Made in New York"
         ],
         "kosherCert": "CRC · CY · Y",
@@ -741,7 +729,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "pizza",
         "name": "Mini Pizza Bagels",
         "shortName": "Mini Pizza Bagels",
-        "description": "12 mini pizza bagels, made in New York. Perfect for snacking or a quick bite.",
+        "description": "Twelve mini pizza bagels for snacks and quick lunches. Made in New York.",
         "weight": "18.6 OZ (527g)",
         "sku": "180753",
         "upc": "073490133749",
@@ -755,9 +743,7 @@ export const ranges: ProductRange[] = [
         ],
         "kosher": true,
         "features": [
-          "12 Mini Bagels",
-          "Pizza Style",
-          "Quick & Easy",
+          "12 mini bagels",
           "Made in New York"
         ],
         "kosherCert": "CRC · CY · Y",
@@ -769,7 +755,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "pizza",
         "name": "Pizza Dough",
         "shortName": "Pizza Dough 48oz",
-        "description": "Old Williamsburg frozen pizza dough, 48 oz.",
+        "description": "Frozen pizza dough for homemade pies, 48 oz. Pairs with Rotev Pizza Sauce.",
         "weight": "48 OZ",
         "sku": "180757",
         "upc": "073490135101",
@@ -786,7 +772,7 @@ export const ranges: ProductRange[] = [
   {
     "slug": "pickles",
     "name": "Pickles & Gherkins",
-    "tagline": "Crunchy dill pickles and gherkins — brined the old-fashioned Brooklyn way.",
+    "tagline": "Naturally fermented dill pickles and gherkins, from baby to jumbo.",
     "code": "PROVISIONS",
     "image": "/img/range-pickles.webp",
     "products": [
@@ -796,7 +782,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "pickles",
         "name": "Dill Pickles",
         "shortName": "Dill Pickles",
-        "description": "Classic Brooklyn dill pickles, naturally fermented for maximum crunch and tangy flavor.",
+        "description": "Dill pickles, naturally fermented for crunch and tang.",
         "weight": "24 OZ (680g)",
         "sku": "180767",
         "upc": "073490134166",
@@ -810,10 +796,9 @@ export const ranges: ProductRange[] = [
         ],
         "kosher": true,
         "features": [
-          "Classic Dill Recipe",
-          "Naturally Fermented",
-          "Crunchy Texture",
-          "No Artificial Preservatives"
+          "Dill",
+          "Naturally fermented",
+          "No artificial preservatives"
         ],
         "variants": [
           {
@@ -840,7 +825,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "pickles",
         "name": "Gherkins",
         "shortName": "Gherkins 24oz",
-        "description": "Petite dill gherkins with the perfect snap. Brined the old-fashioned way.",
+        "description": "Petite dill gherkins with a clean snap, brined the old-fashioned way.",
         "weight": "24.3 OZ (689g)",
         "sku": "180840",
         "upc": "073490134388",
@@ -854,10 +839,9 @@ export const ranges: ProductRange[] = [
         ],
         "kosher": true,
         "features": [
-          "Petite Dill Gherkins",
-          "Naturally Fermented",
-          "Perfect Crunch",
-          "No Artificial Preservatives"
+          "Petite dill gherkins",
+          "Naturally fermented",
+          "No artificial preservatives"
         ],
         "kosherCert": "CRC · P",
         "storage": "Pantry"
@@ -868,7 +852,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "pickles",
         "name": "Jumbo Gherkins",
         "shortName": "Jumbo Gherkins 57oz",
-        "description": "Jumbo-sized gherkins in a generous family jar. Big flavor, big crunch.",
+        "description": "Jumbo dill gherkins in a family-size jar.",
         "weight": "57.48 OZ (1.63kg)",
         "sku": "180841",
         "upc": "073490134395",
@@ -882,10 +866,10 @@ export const ranges: ProductRange[] = [
         ],
         "kosher": true,
         "features": [
-          "Jumbo Size Gherkins",
-          "Family Size Jar",
-          "Naturally Fermented",
-          "No Artificial Preservatives"
+          "Jumbo size",
+          "Family-size jar",
+          "Naturally fermented",
+          "No artificial preservatives"
         ],
         "kosherCert": "CRC · P",
         "storage": "Pantry"
@@ -896,7 +880,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "pickles",
         "name": "Baby Gherkins",
         "shortName": "Baby Gherkins 24oz",
-        "description": "Adorable baby gherkins — tiny, crunchy, and packed with dill flavor.",
+        "description": "Baby gherkins: tiny, crunchy and full of dill.",
         "weight": "24.3 OZ (689g)",
         "sku": "180842",
         "upc": "073490134579",
@@ -910,10 +894,9 @@ export const ranges: ProductRange[] = [
         ],
         "kosher": true,
         "features": [
-          "Tiny Baby Gherkins",
-          "Extra Crunchy",
-          "Naturally Fermented",
-          "No Artificial Preservatives"
+          "Baby gherkins",
+          "Naturally fermented",
+          "No artificial preservatives"
         ],
         "kosherCert": "CRC · P",
         "storage": "Pantry"
@@ -923,7 +906,7 @@ export const ranges: ProductRange[] = [
   {
     "slug": "salsa",
     "name": "Salsa",
-    "tagline": "Brooklyn-made salsa — bold heat and fresh ingredients.",
+    "tagline": "Hot and mild, 16 oz each.",
     "code": "PROVISIONS",
     "image": "/img/range-salsa.webp",
     "products": [
@@ -933,7 +916,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "salsa",
         "name": "Hot Salsa",
         "shortName": "Hot Salsa 16oz",
-        "description": "Our hot salsa brings serious heat with fresh tomatoes, peppers, and Brooklyn attitude.",
+        "description": "Hot salsa made with tomatoes and peppers. It has real heat.",
         "weight": "16 OZ (454g)",
         "sku": "180838",
         "upc": "073490134586",
@@ -947,10 +930,8 @@ export const ranges: ProductRange[] = [
         ],
         "kosher": true,
         "features": [
-          "Hot Heat Level",
-          "Fresh Ingredients",
-          "Brooklyn Recipe",
-          "No Artificial Preservatives"
+          "Hot",
+          "No artificial preservatives"
         ],
         "kosherCert": "CRC · OU · P",
         "storage": "Pantry"
@@ -961,7 +942,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "salsa",
         "name": "Mild Salsa",
         "shortName": "Mild Salsa 16oz",
-        "description": "All the fresh flavor, easy on the heat. Our mild salsa is perfect for everyday snacking.",
+        "description": "Mild salsa with tomatoes and peppers. Easy on the heat.",
         "weight": "16 OZ (454g)",
         "sku": "180839",
         "upc": "073490134593",
@@ -975,10 +956,8 @@ export const ranges: ProductRange[] = [
         ],
         "kosher": true,
         "features": [
-          "Mild Heat Level",
-          "Fresh Ingredients",
-          "Brooklyn Recipe",
-          "No Artificial Preservatives"
+          "Mild",
+          "No artificial preservatives"
         ],
         "kosherCert": "CRC · OU · P",
         "storage": "Pantry"
@@ -988,7 +967,7 @@ export const ranges: ProductRange[] = [
   {
     "slug": "sauces",
     "name": "Sauces & Mustards",
-    "tagline": "Mustards, mayos and BBQ sauces for the whole spread.",
+    "tagline": "Three mustards, two mayos, four BBQ sauces, pizza sauce and Volcano Sauce.",
     "code": "",
     "image": "",
     "products": [
@@ -998,7 +977,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "sauces",
         "name": "Volcano Sauce",
         "shortName": "Volcano 12oz",
-        "description": "Old Williamsburg Volcano Sauce, 12 oz.",
+        "description": "Volcano Sauce, 12 oz.",
         "weight": "12 OZ",
         "sku": "180830",
         "upc": "073490134531",
@@ -1017,7 +996,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "sauces",
         "name": "Rotev Pizza Sauce",
         "shortName": "Rotev Pizza 12oz",
-        "description": "Old Williamsburg Rotev Pizza Sauce, 12 oz.",
+        "description": "Pizza sauce for homemade pies, 12 oz. Pairs with our frozen pizza dough.",
         "weight": "12 OZ",
         "sku": "180831",
         "upc": "073490134548",
@@ -1035,7 +1014,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "sauces",
         "name": "Spicy Mayo",
         "shortName": "Spicy Mayo 12oz",
-        "description": "Old Williamsburg Spicy Mayo, 12 oz.",
+        "description": "Spicy mayo, 12 oz. For sandwiches, fries and dipping.",
         "weight": "12 OZ",
         "sku": "180832",
         "upc": "073490134555",
@@ -1053,7 +1032,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "sauces",
         "name": "Garlic Mayo",
         "shortName": "Garlic Mayo 12oz",
-        "description": "Old Williamsburg Garlic Mayo, 12 oz.",
+        "description": "Garlic mayo, 12 oz. For sandwiches, burgers and dipping.",
         "weight": "12 OZ",
         "sku": "180833",
         "upc": "073490134562",
@@ -1071,7 +1050,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "sauces",
         "name": "Stone Ground Mustard",
         "shortName": "Stone Ground 10oz",
-        "description": "Old Williamsburg Stone Ground Mustard, 10 oz.",
+        "description": "Stone ground mustard, 10 oz.",
         "weight": "10 OZ",
         "sku": "180850",
         "upc": "073490134616",
@@ -1093,7 +1072,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "sauces",
         "name": "Sweet Hot Mustard",
         "shortName": "Sweet Hot 10oz",
-        "description": "Old Williamsburg Sweet Hot Mustard, 10 oz.",
+        "description": "Sweet hot mustard, 10 oz.",
         "weight": "10 OZ",
         "sku": "180851",
         "upc": "073490134623",
@@ -1113,7 +1092,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "sauces",
         "name": "Craft Beer Mustard",
         "shortName": "Craft Beer 10oz",
-        "description": "Old Williamsburg Craft Beer Mustard, 10 oz.",
+        "description": "Craft beer mustard, 10 oz.",
         "weight": "10 OZ",
         "sku": "180852",
         "upc": "073490134630",
@@ -1133,7 +1112,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "sauces",
         "name": "BBQ Sauce Original",
         "shortName": "Original BBQ 18oz",
-        "description": "Old Williamsburg BBQ Sauce Original, 18 oz.",
+        "description": "Original BBQ sauce, 18 oz.",
         "weight": "18 OZ",
         "sku": "180855",
         "upc": "073490134647",
@@ -1153,7 +1132,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "sauces",
         "name": "BBQ Sauce Bourbon",
         "shortName": "Bourbon BBQ 18oz",
-        "description": "Old Williamsburg BBQ Sauce Bourbon, 18 oz.",
+        "description": "Bourbon BBQ sauce, 18 oz.",
         "weight": "18 OZ",
         "sku": "180856",
         "upc": "073490134654",
@@ -1171,7 +1150,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "sauces",
         "name": "BBQ Sauce Cherry",
         "shortName": "Cherry BBQ 18oz",
-        "description": "Old Williamsburg BBQ Sauce Cherry, 18 oz.",
+        "description": "Cherry BBQ sauce, 18 oz.",
         "weight": "18 OZ",
         "sku": "180857",
         "upc": "073490134661",
@@ -1189,7 +1168,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "sauces",
         "name": "BBQ Sauce Chipotle",
         "shortName": "Chipotle BBQ 18oz",
-        "description": "Old Williamsburg BBQ Sauce Chipotle, 18 oz.",
+        "description": "Chipotle BBQ sauce, 18 oz.",
         "weight": "18 OZ",
         "sku": "180858",
         "upc": "073490134678",
@@ -1206,7 +1185,7 @@ export const ranges: ProductRange[] = [
   {
     "slug": "kugels-knishes",
     "name": "Kugels & Knishes",
-    "tagline": "Lukshen and potato kugels, plus potato knishes from the freezer aisle.",
+    "tagline": "Yerushalmi, sweet lukshen and potato kugels. Potato knishes, regular and mini.",
     "code": "",
     "image": "",
     "products": [
@@ -1216,7 +1195,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "kugels-knishes",
         "name": "Yerushalmi Lukshen Kugel",
         "shortName": "Yerushalmi 14.1oz",
-        "description": "Old Williamsburg Yerushalmi Lukshen Kugel, 14.1 oz.",
+        "description": "Yerushalmi lukshen kugel, 14.1 oz. In the refrigerated case.",
         "weight": "14.1 OZ",
         "sku": "180680",
         "upc": "073490134845",
@@ -1235,7 +1214,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "kugels-knishes",
         "name": "Sweet Lukshen Kugel",
         "shortName": "Sweet Lukshen 14.1oz",
-        "description": "Old Williamsburg Sweet Lukshen Kugel, 14.1 oz.",
+        "description": "Sweet lukshen kugel, 14.1 oz. In the refrigerated case.",
         "weight": "14.1 OZ",
         "sku": "180681",
         "upc": "073490134852",
@@ -1254,7 +1233,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "kugels-knishes",
         "name": "Potato Kugel",
         "shortName": "Potato Kugel 14.1oz",
-        "description": "Old Williamsburg Potato Kugel, 14.1 oz.",
+        "description": "Potato kugel, 14.1 oz. In the refrigerated case.",
         "weight": "14.1 OZ",
         "sku": "180682",
         "upc": "073490134869",
@@ -1293,7 +1272,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "kugels-knishes",
         "name": "Potato Knishes",
         "shortName": "Potato Knishes 19oz",
-        "description": "Old Williamsburg Potato Knishes, 19 oz.",
+        "description": "Potato knishes, 19 oz. In the freezer aisle.",
         "weight": "19 OZ",
         "sku": "180690",
         "upc": "073490134821",
@@ -1312,7 +1291,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "kugels-knishes",
         "name": "Mini Potato Knishes",
         "shortName": "Mini Knishes 12.7oz",
-        "description": "Old Williamsburg Mini Potato Knishes, 12.7 oz.",
+        "description": "Mini potato knishes, 12.7 oz. In the freezer aisle.",
         "weight": "12.7 OZ",
         "sku": "180691",
         "upc": "073490134838",
@@ -1330,7 +1309,7 @@ export const ranges: ProductRange[] = [
   {
     "slug": "cold-brew",
     "name": "Cold Brew Coffee",
-    "tagline": "Cold brew coffee in 48 oz bottles: medium roast, dark roast and vanilla.",
+    "tagline": "Medium roast, dark roast and vanilla, in 48 oz bottles.",
     "code": "",
     "image": "",
     "products": [
@@ -1340,7 +1319,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "cold-brew",
         "name": "Cold Brew Coffee Medium Roast",
         "shortName": "Medium Roast 48oz",
-        "description": "Old Williamsburg Cold Brew Coffee Medium Roast, 48 oz.",
+        "description": "Medium roast cold brew coffee in a 48 fl oz bottle. Keep refrigerated.",
         "weight": "48 OZ",
         "sku": "180815",
         "upc": "073490134333",
@@ -1358,7 +1337,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "cold-brew",
         "name": "Cold Brew Coffee Dark Roast",
         "shortName": "Dark Roast 48oz",
-        "description": "Old Williamsburg Cold Brew Coffee Dark Roast, 48 oz.",
+        "description": "Dark roast cold brew coffee in a 48 fl oz bottle. Keep refrigerated.",
         "weight": "48 OZ",
         "sku": "180816",
         "upc": "073490134340",
@@ -1376,7 +1355,7 @@ export const ranges: ProductRange[] = [
         "rangeSlug": "cold-brew",
         "name": "Cold Brew Coffee Vanilla",
         "shortName": "Vanilla 48oz",
-        "description": "Old Williamsburg Cold Brew Coffee Vanilla, 48 oz.",
+        "description": "Vanilla cold brew coffee in a 48 fl oz bottle. Keep refrigerated.",
         "weight": "48 OZ",
         "sku": "180817",
         "upc": "073490134357",

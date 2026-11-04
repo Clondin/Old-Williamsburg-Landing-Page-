@@ -3,7 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ranges, listed } from "@/data/products";
-import { Menu, Close, ArrowRight } from "./icons";
+import { Menu, Close, Search } from "./icons";
 import { CONTACT_EMAIL } from "@/lib/site";
 
 export default function SiteHeader() {
@@ -11,7 +11,7 @@ export default function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [mega, setMega] = useState(false);
-  const darkTop = pathname === "/" || pathname.startsWith("/products/range/");
+  const darkTop = pathname === "/";
   const overDark = darkTop && !scrolled && !mega;
 
   useEffect(() => {
@@ -20,10 +20,15 @@ export default function SiteHeader() {
     window.addEventListener("scroll", on, { passive: true });
     return () => window.removeEventListener("scroll", on);
   }, []);
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => { setOpen(false); setMega(false); }, [pathname]);
   useEffect(() => { document.body.style.overflow = open ? "hidden" : ""; }, [open]);
 
   const shown = ranges.filter((r) => listed(r.products).length);
+  const focusSearch = (e: React.MouseEvent) => {
+    const el = document.getElementById("product-search");
+    if (el) { e.preventDefault(); el.scrollIntoView({ block: "center" }); (el as HTMLInputElement).focus(); }
+  };
   const tone = overDark ? "text-cream" : "text-ink";
 
   return (
@@ -49,23 +54,26 @@ export default function SiteHeader() {
           >
             Products
           </button>
-          <Link href="/products" className="ulink py-2">Shop all</Link>
+          <Link href="/products" className="ulink py-2">All products</Link>
           <Link href="/#story" className="ulink py-2">Our story</Link>
           <a href={`mailto:${CONTACT_EMAIL}`} className="ulink py-2">Contact</a>
         </nav>
 
         <Link
-          href="/products"
+          href="/products?focus=search" onClick={focusSearch}
           className={`hidden md:inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-colors ${
             overDark ? "bg-cream text-ink hover:bg-white" : "bg-ink text-cream hover:bg-navy"
           }`}
         >
-          Explore the range <ArrowRight />
+          <Search className="w-4 h-4" /> Find a product
         </Link>
 
-        <button type="button" className={`md:hidden -mr-2 p-2 ${tone}`} aria-label="Open menu" aria-expanded={open} onClick={() => setOpen(true)}>
+        <div className="flex items-center md:hidden">
+        <Link href="/products?focus=search" onClick={focusSearch} aria-label="Find a product" className={`p-2 ${tone}`}><Search /></Link>
+        <button type="button" className={`-mr-2 p-2 ${tone}`} aria-label="Open menu" aria-expanded={open} onClick={() => setOpen(true)}>
           <Menu />
         </button>
+        </div>
       </div>
 
       {/* desktop mega menu */}
@@ -73,12 +81,12 @@ export default function SiteHeader() {
         className={`absolute inset-x-0 top-full hidden md:block transition-all duration-300 ${mega ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"}`}
       >
         <div className="mx-auto max-w-[1400px] px-10 pb-8">
-          <div className="rounded-3xl bg-paper shadow-[0_30px_60px_-20px_rgba(16,34,63,.35)] ring-1 ring-ink/5 p-6 grid grid-cols-4 gap-3">
+          <div className="rounded-md bg-paper shadow-[0_30px_60px_-20px_rgba(16,34,63,.35)] ring-1 ring-ink/5 p-6 grid grid-cols-4 gap-3">
             {shown.map((r) => {
               const hero = listed(r.products).find((p) => p.image && !p.comingSoon);
               return (
-                <Link key={r.slug} href={`/products/range/${r.slug}`} className="group flex items-center gap-4 rounded-2xl p-3 hover:bg-paper-2 transition-colors">
-                  <span className="stage grid h-16 w-16 shrink-0 place-items-center rounded-xl overflow-hidden">
+                <Link key={r.slug} href={`/products/range/${r.slug}`} className="group flex items-center gap-4 rounded-md p-3 hover:bg-paper-2 transition-colors">
+                  <span className="stage grid h-16 w-16 shrink-0 place-items-center rounded-md overflow-hidden">
                     {hero && (
                       // eslint-disable-next-line @next/next/no-img-element
                       <img src={hero.image.replace(/\.webp$/, "-s.webp")} alt="" className="packshot h-12 w-12 object-contain transition-transform duration-500 group-hover:scale-110" loading="lazy" />
@@ -86,7 +94,7 @@ export default function SiteHeader() {
                   </span>
                   <span>
                     <span className="block font-headline text-lg leading-tight text-ink">{r.name}</span>
-                    <span className="eyebrow text-brass !text-[0.62rem]">{listed(r.products).length} products</span>
+                    <span className="text-xs text-muted">{listed(r.products).length} products</span>
                   </span>
                 </Link>
               );
@@ -115,7 +123,7 @@ export default function SiteHeader() {
             ))}
           </ul>
           <div className="mt-8 grid gap-3 text-lg">
-            <Link href="/products">Shop all products</Link>
+            <Link href="/products">All products</Link>
             <Link href="/#story">Our story</Link>
             <a href={`mailto:${CONTACT_EMAIL}`}>Contact us</a>
           </div>

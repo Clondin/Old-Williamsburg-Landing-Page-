@@ -13,11 +13,10 @@ export default function ProductsPage() {
   const products = shown.flatMap((r) => listed(r.products));
   return (
     <main className="bg-paper">
-      <section className="mx-auto max-w-[1400px] px-5 pt-28 pb-20 md:px-10 md:pt-40">
-        <p className="eyebrow text-brick">The catalog</p>
-        <h1 className="display mt-3 text-6xl md:text-8xl">All <em className="text-brick">products.</em></h1>
-        <p className="mt-5 max-w-xl text-lg text-muted">{products.length} products across {shown.length} ranges.</p>
-        <div className="mt-12">
+      <section className="mx-auto max-w-[1400px] px-5 pt-24 pb-20 md:px-10 md:pt-36">
+        <h1 className="display text-[3rem] md:text-8xl">All products</h1>
+        <p className="lede mt-4 max-w-xl text-muted">{products.length} products in {shown.length} ranges. Search by name, item number or UPC.</p>
+        <div className="mt-8 md:mt-10">
           <ProductGrid ranges={shown.map(({ slug, name }) => ({ slug, name }))} products={products} />
         </div>
       </section>
