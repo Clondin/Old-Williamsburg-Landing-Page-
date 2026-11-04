@@ -18,7 +18,7 @@ export default function RangeIndex({ ranges }: { ranges: ProductRange[] }) {
           return (
             <li key={r.slug} className="border-b rule">
               <Link href={`/products/range/${r.slug}`} className="group grid grid-cols-[1fr_auto] items-center gap-x-4 py-5 md:grid-cols-[3.5rem_minmax(0,1.1fr)_minmax(0,1fr)_15rem_2rem] md:gap-x-8 md:py-7">
-                <span className="hidden font-mono text-sm text-muted md:block">{String(i + 1).padStart(2, "0")}</span>
+                <span className="hidden text-sm tabular-nums text-muted md:block">{String(i + 1).padStart(2, "0")}</span>
                 <span className="min-w-0">
                   <span className="flex items-baseline gap-3">
                     <span className="font-headline text-[1.9rem] leading-none tracking-tight text-ink transition-colors group-hover:text-brick md:text-5xl">{r.name}</span>

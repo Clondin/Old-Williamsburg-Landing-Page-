@@ -23,7 +23,7 @@
 
   --font-headline: var(--font-newsreader), Georgia, serif;
   --font-body: var(--font-work-sans), system-ui, sans-serif;
-  --font-mono: var(--font-space-grotesk), ui-monospace, monospace;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 html { scroll-behavior: smooth; }
@@ -48,7 +48,7 @@ body {
 }
 
 .eyebrow {
-  font-family: var(--font-mono); text-transform: uppercase; letter-spacing: .14em;
+  font-family: var(--font-body); text-transform: uppercase; letter-spacing: .14em;
   font-size: .72rem; font-weight: 600;
 }
 

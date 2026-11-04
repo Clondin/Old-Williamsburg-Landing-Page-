@@ -150,8 +150,8 @@ export default function ProductView({ product, rangeName }: { product: Product; 
           <div className="flex justify-between gap-4 py-3"><dt className="text-muted">Size</dt><dd className="text-right font-medium">{size}</dd></div>
           {kosher && <div className="flex justify-between gap-4 py-3"><dt className="text-muted">Kosher</dt><dd className="text-right font-medium">{kosher}</dd></div>}
           {product.storage && <div className="flex justify-between gap-4 py-3"><dt className="text-muted">Aisle</dt><dd className="text-right font-medium">{product.storage}</dd></div>}
-          <div className="flex justify-between gap-4 py-3"><dt className="text-muted">Item #</dt><dd className="font-mono">{v.sku}</dd></div>
-          {v.upc && <div className="flex justify-between gap-4 py-3"><dt className="text-muted">UPC</dt><dd className="font-mono">{v.upc}</dd></div>}
+          <div className="flex justify-between gap-4 py-3"><dt className="text-muted">Item #</dt><dd className="font-medium tabular-nums">{v.sku}</dd></div>
+          {v.upc && <div className="flex justify-between gap-4 py-3"><dt className="text-muted">UPC</dt><dd className="font-medium tabular-nums">{v.upc}</dd></div>}
         </dl>
       </div>
     </div>
