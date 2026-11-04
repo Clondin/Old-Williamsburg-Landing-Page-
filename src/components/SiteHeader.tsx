@@ -11,7 +11,8 @@ export default function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [mega, setMega] = useState(false);
-  const overDark = pathname === "/" && !scrolled;
+  const darkTop = pathname === "/" || pathname.startsWith("/products/range/");
+  const overDark = darkTop && !scrolled && !mega;
 
   useEffect(() => {
     const on = () => setScrolled(window.scrollY > 40);
