@@ -1,40 +1,16 @@
 "use client";
-
 import Link from "next/link";
-
-export default function Error({
-  reset,
-}: {
-  error: Error & { digest?: string };
-  reset: () => void;
-}) {
+export default function Error({ reset }: { error: Error & { digest?: string }; reset: () => void }) {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-blueprint-bg px-4">
-      <div className="text-center max-w-md">
-        <p className="font-mono text-[10px] text-brick-red uppercase tracking-widest mb-4">
-          Error 500 // Something Went Wrong
-        </p>
-        <h1 className="font-headline text-5xl md:text-7xl text-steel-blue font-black mb-6">
-          Bridge Under Repair
-        </h1>
-        <p className="font-body text-industrial-gray mb-10 leading-relaxed">
-          Something unexpected happened. Let&apos;s try to get things back on track.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button
-            onClick={reset}
-            className="bg-steel-blue text-white px-10 py-4 font-mono uppercase tracking-widest text-xs font-bold hover:bg-dark-steel transition-colors cursor-pointer"
-          >
-            Try Again
-          </button>
-          <Link
-            href="/"
-            className="border-2 border-steel-blue text-steel-blue px-10 py-4 font-mono uppercase tracking-widest text-xs font-bold hover:bg-steel-blue hover:text-white transition-colors"
-          >
-            Back to Home
-          </Link>
+    <main className="grid min-h-[70vh] place-items-center px-5 pt-24 text-center">
+      <div>
+        <p className="eyebrow text-brick">Something went wrong</p>
+        <h1 className="display mt-4 text-5xl">Let&apos;s try that again.</h1>
+        <div className="mt-8 flex justify-center gap-3">
+          <button onClick={reset} className="rounded-full bg-ink px-6 py-3 font-semibold text-cream">Retry</button>
+          <Link href="/" className="rounded-full bg-paper-2 px-6 py-3 font-semibold">Home</Link>
         </div>
       </div>
-    </div>
+    </main>
   );
 }

@@ -1,146 +1,95 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { getRangeBySlug, getAllRangeSlugs } from "@/data/products";
-import Image from "next/image";
 import Link from "next/link";
+import { getRangeBySlug, getAllRangeSlugs, listed, ranges } from "@/data/products";
+import ProductCard from "@/components/ProductCard";
+import JsonLd from "@/components/JsonLd";
+import { absUrl } from "@/lib/site";
+import { ArrowRight } from "@/components/icons";
+import { small } from "@/lib/img";
 
 export function generateStaticParams() {
   return getAllRangeSlugs().map((slug) => ({ slug }));
 }
+export const dynamicParams = false;
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const range = getRangeBySlug(slug);
-  if (!range) return { title: "Range Not Found" };
+  const r = getRangeBySlug(slug);
+  if (!r) return { title: "Range not found" };
+  const n = listed(r.products).length;
+  const desc = `${r.tagline} ${n} Old Williamsburg ${r.name.toLowerCase()} products.`.slice(0, 160);
+  const img = r.image || listed(r.products).find((p) => p.image)?.image || "/og.jpg";
   return {
-    title: range.name,
-    description: range.tagline,
-    openGraph: {
-      title: `${range.name} — Old Williamsburg`,
-      description: range.tagline,
-    },
+    title: r.name,
+    description: desc,
+    alternates: { canonical: `/products/range/${r.slug}` },
+    openGraph: { title: `${r.name} | Old Williamsburg`, description: desc, url: `/products/range/${r.slug}`, images: [{ url: img, alt: r.name }] },
   };
 }
 
-export default async function RangePage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export default async function RangePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const range = getRangeBySlug(slug);
-
   if (!range) notFound();
+  const items = listed(range.products);
+  const shots = items.filter((p) => p.image && !p.comingSoon).slice(0, 4);
+  const others = ranges.filter((r) => r.slug !== range.slug && listed(r.products).length);
 
   return (
-    <main className="min-h-screen bg-blueprint-bg">
-      {/* Breadcrumb */}
-      <div className="max-w-7xl mx-auto px-4 md:px-8 pt-28 pb-4">
-        <nav className="font-mono text-[10px] uppercase tracking-widest text-industrial-gray flex flex-wrap items-center gap-2">
-          <Link href="/" className="hover:text-steel-blue transition-colors">
-            Home
-          </Link>
-          <span>/</span>
-          <Link
-            href="/#catalog"
-            className="hover:text-steel-blue transition-colors"
-          >
-            Products
-          </Link>
-          <span>/</span>
-          <span className="text-steel-blue font-bold">{range.name}</span>
-        </nav>
-      </div>
-
-      {/* Range Header */}
-      <section className="max-w-7xl mx-auto px-8 pb-8">
-        <div className="relative overflow-hidden border-2 border-steel-blue/20 bg-white mb-12">
-          {range.image && (
-            <div className="absolute inset-0 z-0">
-              <Image
-                src={range.image}
-                alt={range.name}
-                fill
-                className="object-cover opacity-15"
-                sizes="100vw"
-              />
+    <main className="bg-paper">
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: `Old Williamsburg ${range.name}`,
+          url: absUrl(`/products/range/${range.slug}`),
+          mainEntity: {
+            "@type": "ItemList",
+            itemListElement: items.map((p, i) => ({ "@type": "ListItem", position: i + 1, url: absUrl(`/products/${p.slug}`), name: p.name })),
+          },
+        }}
+      />
+      <section className="stage-dark relative isolate overflow-hidden text-cream">
+        {range.image && (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={range.image} alt="" aria-hidden="true" className="absolute inset-y-0 right-0 -z-10 h-full w-full object-cover opacity-40 md:w-3/5 md:opacity-90 [mask-image:linear-gradient(to_right,transparent,black_45%)]" />
+        )}
+        <div className="mx-auto grid max-w-[1400px] items-end gap-10 px-5 pt-28 pb-14 md:grid-cols-2 md:px-10 md:pt-40 md:pb-20">
+          <div>
+            <nav aria-label="Breadcrumb" className="mb-6 flex gap-2 text-sm text-cream/60">
+              <Link href="/" className="ulink hover:text-cream">Home</Link><span aria-hidden="true">/</span>
+              <Link href="/products" className="ulink hover:text-cream">Products</Link>
+            </nav>
+            <p className="eyebrow text-brass-light">{items.length} products</p>
+            <h1 className="display mt-3 text-6xl md:text-8xl">{range.name}</h1>
+            <p className="mt-5 max-w-lg text-lg leading-relaxed text-cream/75">{range.tagline}</p>
+          </div>
+          {!range.image && shots.length > 0 && (
+            <div className="flex h-56 items-end justify-center gap-3 md:h-72">
+              {shots.map((p, k) => (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img key={p.slug} src={small(p.image)} alt="" aria-hidden="true" className={`float packshot h-[80%] w-auto max-w-[24%] object-contain ${k % 2 ? "h-full" : ""}`} style={{ animationDelay: `${-k * 1.5}s` }} />
+              ))}
             </div>
           )}
-          <div className="relative z-10 p-6 md:p-12">
-            <div className="flex flex-col md:flex-row justify-between items-baseline mb-6">
-              <div className="flex items-center gap-3 md:gap-6">
-                <h1 className="font-headline text-3xl md:text-5xl text-steel-blue italic font-bold">
-                  {range.name}
-                </h1>
-                <span className="bg-brick-red text-white font-mono text-[10px] px-3 py-1 uppercase tracking-tighter">
-                  {range.code}
-                </span>
-              </div>
-              <p className="font-mono text-xs uppercase tracking-widest text-industrial-gray mt-4 md:mt-0">
-                {range.products.length} Products
-              </p>
-            </div>
-            <p className="text-industrial-gray leading-relaxed font-light text-lg max-w-2xl">
-              {range.tagline}
-            </p>
-          </div>
         </div>
       </section>
-
-      {/* Product Grid */}
-      <section className="max-w-7xl mx-auto px-4 md:px-8 pb-16 md:pb-32">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {range.products.map((product) => (
-            <Link
-              key={product.slug}
-              href={`/products/${product.slug}`}
-              className="group border-2 border-steel-blue/10 bg-white overflow-hidden flex flex-col justify-end h-[260px] sm:h-[320px] hover:border-steel-blue transition-all duration-300 relative"
-            >
-              <div className="absolute top-0 right-0 w-10 h-10 border-t-2 border-r-2 border-brick-red opacity-0 group-hover:opacity-100 transition-opacity z-20" />
-
-              {/* Product Image Background */}
-              <div className="absolute inset-0 z-0 skeleton bg-white">
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  fill
-                  className="object-contain p-4 group-hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
-              </div>
-
-              {/* Product Info */}
-              <div className="relative z-10 p-5 flex flex-col justify-end text-white">
-                <span className="font-mono text-[9px] text-brick-red mb-1 block font-bold">
-                  {product.code}
-                </span>
-                <h2 className="font-headline text-xl font-bold text-white mb-1">
-                  {product.shortName}
-                </h2>
-                <span className="font-mono text-[10px] text-white/60 uppercase mb-2">
-                  {product.weight}
-                </span>
-                {product.variants && product.variants.length > 1 && (
-                  <span className="font-mono text-[9px] text-white/80 bg-white/20 px-2 py-0.5 mt-1 inline-block">
-                    {product.variants.length} sizes available
-                  </span>
-                )}
-                <div className="mt-2 pt-2 border-t border-white/20">
-                  <span className="font-mono text-xs uppercase tracking-widest font-bold flex items-center group-hover:text-brick-red transition-colors text-white">
-                    View Details
-                    <span className="material-symbols-outlined ml-1 text-sm group-hover:translate-x-1 transition-transform">
-                      arrow_forward
-                    </span>
-                  </span>
-                </div>
-              </div>
-            </Link>
-          ))}
+      <section className="mx-auto max-w-[1400px] px-5 py-16 md:px-10 md:py-24" aria-label={`${range.name} products`}>
+        <div className="grid grid-cols-2 gap-x-4 gap-y-12 sm:gap-x-6 md:grid-cols-3 lg:grid-cols-4">
+          {items.map((p, i) => <ProductCard key={p.slug} product={p} showRange={false} priority={i < 4} />)}
+        </div>
+      </section>
+      <section className="border-t border-ink/10" aria-labelledby="other-h">
+        <div className="mx-auto max-w-[1400px] px-5 py-14 md:px-10">
+          <h2 id="other-h" className="eyebrow text-muted mb-5">More from Old Williamsburg</h2>
+          <div className="flex flex-wrap gap-2">
+            {others.map((r) => (
+              <Link key={r.slug} href={`/products/range/${r.slug}`} className="group inline-flex items-center gap-2 rounded-full bg-paper-2 px-5 py-3 font-headline text-xl hover:bg-ink hover:text-cream transition-colors">
+                {r.name} <ArrowRight className="w-4 h-4 opacity-50 group-hover:opacity-100" />
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
     </main>
